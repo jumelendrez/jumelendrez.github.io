@@ -152,3 +152,47 @@
   const year = document.getElementById('current-year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
+
+/* V5.1 approved-target hero interaction */
+(() => {
+  const stage = document.querySelector('.target-visual');
+  if (!stage) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer:fine)').matches;
+  if (reduceMotion || !finePointer) return;
+
+  const network = stage.querySelector('.target-network');
+  const profile = stage.querySelector('.target-profile-rig');
+  const glow = stage.querySelector('.target-profile-glow');
+
+  stage.addEventListener('pointermove', event => {
+    const rect = stage.getBoundingClientRect();
+    const nx = (event.clientX - rect.left) / rect.width - 0.5;
+    const ny = (event.clientY - rect.top) / rect.height - 0.5;
+
+    if (network) {
+      network.style.marginLeft = (nx * -8) + 'px';
+      network.style.marginTop = (ny * -6) + 'px';
+    }
+    if (profile) {
+      profile.style.marginLeft = (nx * 5) + 'px';
+    }
+    if (glow) {
+      glow.style.marginLeft = (nx * 6) + 'px';
+      glow.style.marginTop = (ny * 5) + 'px';
+    }
+  });
+
+  stage.addEventListener('pointerleave', () => {
+    if (network) {
+      network.style.marginLeft = '';
+      network.style.marginTop = '';
+    }
+    if (profile) profile.style.marginLeft = '';
+    if (glow) {
+      glow.style.marginLeft = '';
+      glow.style.marginTop = '';
+    }
+  });
+})();
