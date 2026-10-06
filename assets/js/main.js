@@ -135,7 +135,7 @@
 })();
 
 
-/* V4 profile + cinematic stage interaction */
+/* V5 profile + restrained portrait interaction */
 (() => {
   const profile = document.getElementById('profile-cutout');
   if (profile) {
@@ -144,13 +144,13 @@
     else profile.addEventListener('load', revealProfile, { once: true });
   }
 
-  const stage = document.querySelector('.hero-stage-v4');
+  const stage = document.querySelector('.hero-portrait-v5');
   const finePointer = window.matchMedia('(pointer:fine)').matches;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (stage && finePointer && !reduceMotion) {
-    const grid = stage.querySelector('.stage-grid');
-    const capabilityStack = stage.querySelector('.hero-capability-stack');
+    const grid = stage.querySelector('.portrait-grid-v5');
+    const aura = stage.querySelector('.portrait-aura-v5');
 
     stage.addEventListener('pointermove', event => {
       const rect = stage.getBoundingClientRect();
@@ -159,18 +159,21 @@
 
       if (grid) {
         grid.style.transform =
-          `translate3d(${nx * -7}px,${ny * -5}px,0)`;
+          `translate3d(${nx * -5}px,${ny * -4}px,0)`;
       }
 
-      if (capabilityStack) {
-        capabilityStack.style.transform =
-          `translate3d(${nx * 6}px,${ny * 5}px,0)`;
+      if (aura) {
+        aura.style.marginLeft = `${nx * 5}px`;
+        aura.style.marginTop = `${ny * 4}px`;
       }
     });
 
     stage.addEventListener('pointerleave', () => {
       if (grid) grid.style.transform = '';
-      if (capabilityStack) capabilityStack.style.transform = '';
+      if (aura) {
+        aura.style.marginLeft = '';
+        aura.style.marginTop = '';
+      }
     });
   }
 })();
