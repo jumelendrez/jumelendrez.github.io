@@ -2578,3 +2578,375 @@ img,svg{max-width:100%;display:block}
     transition:none!important;
   }
 }
+
+
+/* =========================================================
+   V5 — CLEAN PROFILE HERO
+   Smaller full-body treatment for sharper rendering, with
+   open technical accents instead of a boxed sci-fi frame.
+   ========================================================= */
+
+.hero-grid{
+  grid-template-columns:minmax(0,1.08fr) minmax(390px,.72fr)!important;
+  gap:58px!important;
+}
+
+.hero-portrait-v5{
+  position:relative;
+  width:100%;
+  max-width:560px;
+  min-height:650px;
+  justify-self:end;
+  isolation:isolate;
+  overflow:visible;
+}
+
+.portrait-grid-v5{
+  position:absolute;
+  inset:9% -3% 7% 0;
+  z-index:0;
+  opacity:.24;
+  background:
+    radial-gradient(circle,rgba(54,240,221,.24) 1px,transparent 1.45px) 0 0/30px 30px;
+  mask-image:radial-gradient(ellipse at 52% 49%,#000 10%,rgba(0,0,0,.72) 52%,transparent 82%);
+}
+
+.portrait-aura-v5{
+  position:absolute;
+  z-index:0;
+  left:50%;
+  top:47%;
+  width:420px;
+  height:500px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:
+    radial-gradient(ellipse at 50% 48%,rgba(54,240,221,.13),rgba(50,117,150,.055) 46%,transparent 72%);
+  filter:blur(7px);
+  animation:v5Aura 7s ease-in-out infinite;
+}
+
+@keyframes v5Aura{
+  0%,100%{opacity:.78;transform:translate(-50%,-50%) scale(.98)}
+  50%{opacity:1;transform:translate(-50%,-51%) scale(1.025)}
+}
+
+.portrait-ring-v5{
+  position:absolute;
+  z-index:1;
+  left:50%;
+  top:47%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.portrait-ring-v5-a{
+  width:430px;
+  height:430px;
+  border:1px solid rgba(54,240,221,.23);
+  box-shadow:0 0 42px rgba(54,240,221,.045);
+  animation:v5RingSpin 28s linear infinite;
+}
+
+.portrait-ring-v5-a::before{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border-radius:50%;
+  border-top:1px solid rgba(54,240,221,.52);
+  border-right:1px solid transparent;
+  border-bottom:1px solid rgba(98,191,255,.09);
+  border-left:1px solid transparent;
+}
+
+.portrait-ring-v5-b{
+  width:344px;
+  height:344px;
+  border:1px dashed rgba(98,191,255,.18);
+  animation:v5RingSpinReverse 21s linear infinite;
+}
+
+.portrait-ring-v5-b::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:50%;
+  border-left:2px solid rgba(255,179,77,.72);
+  border-top:1px solid transparent;
+  border-right:1px solid transparent;
+  border-bottom:1px solid transparent;
+}
+
+@keyframes v5RingSpin{
+  from{transform:translate(-50%,-50%) rotate(0)}
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+@keyframes v5RingSpinReverse{
+  from{transform:translate(-50%,-50%) rotate(360deg)}
+  to{transform:translate(-50%,-50%) rotate(0)}
+}
+
+.portrait-node-v5{
+  position:absolute;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--v4-cyan);
+  box-shadow:0 0 14px var(--v4-cyan),0 0 28px rgba(54,240,221,.28);
+  animation:v5NodePulse 2.8s ease-in-out infinite;
+}
+
+.node-v5-a{left:12%;top:20%}
+.node-v5-b{
+  right:3%;
+  top:53%;
+  background:var(--v4-amber);
+  box-shadow:0 0 14px rgba(255,179,77,.8);
+  animation-delay:.8s;
+}
+@keyframes v5NodePulse{
+  50%{transform:scale(1.55);opacity:.58}
+}
+
+.portrait-shell-v5{
+  position:absolute;
+  z-index:4;
+  left:50%;
+  bottom:36px;
+  width:min(66%,350px);
+  transform:translateX(-50%);
+  animation:v5PortraitFloat 6.8s ease-in-out infinite;
+  pointer-events:none;
+}
+
+@keyframes v5PortraitFloat{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(-5px)}
+}
+
+.profile-cutout-v5{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  image-rendering:auto;
+  backface-visibility:hidden;
+  opacity:.01;
+  filter:
+    contrast(1.06)
+    saturate(1.03)
+    drop-shadow(0 24px 22px rgba(0,0,0,.40))
+    drop-shadow(0 0 9px rgba(54,240,221,.08));
+  transition:opacity .28s ease,filter .3s ease;
+}
+
+.profile-cutout-v5.is-loaded{
+  opacity:1;
+}
+
+.portrait-floor-v5{
+  position:absolute;
+  z-index:2;
+  left:18%;
+  right:18%;
+  bottom:21px;
+  height:58px;
+  border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(54,240,221,.20),rgba(98,191,255,.04) 43%,transparent 72%);
+  transform:perspective(360px) rotateX(70deg);
+  filter:blur(2px);
+  opacity:.50;
+  animation:v5FloorPulse 5.2s ease-in-out infinite;
+}
+
+@keyframes v5FloorPulse{
+  50%{opacity:.68;transform:perspective(360px) rotateX(70deg) scaleX(1.06)}
+}
+
+.portrait-focus-v5{
+  position:absolute;
+  z-index:7;
+  right:0;
+  bottom:50px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:10px 12px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  background:rgba(6,15,24,.68);
+  backdrop-filter:blur(10px);
+  box-shadow:0 14px 38px rgba(0,0,0,.20);
+}
+
+.portrait-focus-v5>div{
+  display:grid;
+  gap:1px;
+}
+
+.portrait-focus-v5 small{
+  color:var(--v4-amber);
+  font-family:var(--mono);
+  font-size:.46rem;
+  letter-spacing:.12em;
+}
+
+.portrait-focus-v5 strong{
+  color:#dcebf1;
+  font-size:.63rem;
+  font-weight:720;
+  white-space:nowrap;
+}
+
+.portrait-axis-v5{
+  position:absolute;
+  z-index:2;
+  left:2px;
+  top:19%;
+  bottom:17%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  color:rgba(143,161,181,.52);
+  font-family:var(--mono);
+  font-size:.47rem;
+  letter-spacing:.12em;
+  writing-mode:vertical-rl;
+  text-transform:uppercase;
+}
+
+.portrait-axis-v5 i{
+  width:1px;
+  flex:1;
+  min-height:70px;
+  background:linear-gradient(transparent,rgba(54,240,221,.35),transparent);
+}
+
+/* V5 intentionally removes the V4 capability box from the hero.
+   Expertise remains fully represented in the dedicated section below. */
+
+@media(max-width:1120px){
+  .hero-grid{
+    grid-template-columns:minmax(0,1fr) minmax(340px,.68fr)!important;
+    gap:38px!important;
+  }
+  .hero-portrait-v5{
+    min-height:590px;
+    max-width:500px;
+  }
+  .portrait-shell-v5{
+    width:min(67%,320px);
+  }
+  .portrait-ring-v5-a{width:390px;height:390px}
+  .portrait-ring-v5-b{width:312px;height:312px}
+}
+
+@media(max-width:900px){
+  .hero-grid{
+    grid-template-columns:1fr!important;
+    gap:22px!important;
+  }
+
+  .hero-portrait-v5{
+    order:2;
+    width:100%;
+    max-width:390px;
+    min-height:430px;
+    justify-self:center;
+    margin:0 auto 2px;
+  }
+
+  .portrait-grid-v5{
+    inset:5% 3% 6%;
+    opacity:.17;
+  }
+
+  .portrait-aura-v5{
+    width:300px;
+    height:350px;
+  }
+
+  .portrait-ring-v5-a{
+    width:300px;
+    height:300px;
+  }
+
+  .portrait-ring-v5-b{
+    width:242px;
+    height:242px;
+  }
+
+  .portrait-shell-v5{
+    width:205px;
+    bottom:24px;
+  }
+
+  .portrait-floor-v5{
+    left:22%;
+    right:22%;
+    bottom:13px;
+  }
+
+  .portrait-focus-v5{
+    right:50%;
+    bottom:5px;
+    transform:translateX(50%);
+    padding:8px 10px;
+  }
+
+  .portrait-focus-v5 strong{
+    font-size:.58rem;
+  }
+
+  .portrait-axis-v5{
+    display:none;
+  }
+}
+
+@media(max-width:520px){
+  .hero-portrait-v5{
+    max-width:340px;
+    min-height:370px;
+  }
+
+  .portrait-aura-v5{
+    width:250px;
+    height:290px;
+  }
+
+  .portrait-ring-v5-a{
+    width:258px;
+    height:258px;
+  }
+
+  .portrait-ring-v5-b{
+    width:208px;
+    height:208px;
+  }
+
+  .portrait-shell-v5{
+    width:176px;
+    bottom:25px;
+  }
+
+  .portrait-focus-v5{
+    width:max-content;
+    max-width:92%;
+    justify-content:center;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .portrait-aura-v5,
+  .portrait-ring-v5,
+  .portrait-node-v5,
+  .portrait-shell-v5,
+  .portrait-floor-v5{
+    animation:none!important;
+  }
+  .profile-cutout-v5{
+    transition:none!important;
+  }
+}
