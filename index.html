@@ -83,72 +83,21 @@
           </div>
         </div>
 
-        <div class="hero-console" data-reveal="right">
-          <div class="console-head">
-            <div>
-              <span class="console-label">INFRASTRUCTURE MAP</span>
-              <strong>Operational View</strong>
+        <aside class="profile-card" data-reveal="right" aria-label="Profile portrait of Jake Melendrez">
+          <div class="profile-frame">
+            <img src="assets/images/jake-profile.jpg" alt="Jake Melendrez" width="400" height="500" loading="eager" decoding="async">
+            <div class="profile-shade" aria-hidden="true"></div>
+            <div class="profile-corner profile-corner-a" aria-hidden="true"></div>
+            <div class="profile-corner profile-corner-b" aria-hidden="true"></div>
+            <div class="profile-badge">
+              <span class="status-pulse"></span>
+              <div><small>PROFILE</small><strong>Infrastructure · Systems · Delivery</strong></div>
             </div>
-            <div class="console-live"><i></i> ONLINE</div>
           </div>
-
-          <div class="console-stage">
-            <svg class="topology" viewBox="0 0 600 520" role="img" aria-label="Animated abstract network topology">
-              <defs>
-                <linearGradient id="routeGradient" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#4ef1d0" stop-opacity=".15"/>
-                  <stop offset="50%" stop-color="#4ef1d0" stop-opacity=".85"/>
-                  <stop offset="100%" stop-color="#70a7ff" stop-opacity=".15"/>
-                </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="4" result="blur"/>
-                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-              </defs>
-
-              <path id="route-a" class="route route-a" d="M104 126 C210 164 214 234 300 260 C386 286 424 150 516 136"/>
-              <path id="route-b" class="route route-b" d="M92 398 C176 330 228 300 300 260 C372 220 422 330 516 390"/>
-              <path id="route-c" class="route route-c" d="M104 126 C166 240 204 332 92 398"/>
-              <path id="route-d" class="route route-d" d="M516 136 C464 232 440 306 516 390"/>
-
-              <g class="topology-node node-edge" transform="translate(104 126)">
-                <circle r="38"/><circle class="node-ring" r="48"/><text y="4">EDGE</text>
-              </g>
-              <g class="topology-node node-core" transform="translate(300 260)">
-                <circle r="54"/><circle class="node-ring" r="67"/><text y="4">CORE</text>
-              </g>
-              <g class="topology-node node-wifi" transform="translate(516 136)">
-                <circle r="38"/><circle class="node-ring" r="48"/><text y="4">WIFI</text>
-              </g>
-              <g class="topology-node node-data" transform="translate(92 398)">
-                <circle r="38"/><circle class="node-ring" r="48"/><text y="4">DATA</text>
-              </g>
-              <g class="topology-node node-sec" transform="translate(516 390)">
-                <circle r="38"/><circle class="node-ring" r="48"/><text y="4">SEC</text>
-              </g>
-
-              <circle class="packet packet-a" r="5" filter="url(#glow)">
-                <animateMotion dur="4.8s" repeatCount="indefinite"><mpath href="#route-a"/></animateMotion>
-              </circle>
-              <circle class="packet packet-b" r="4" filter="url(#glow)">
-                <animateMotion dur="5.8s" begin="1.1s" repeatCount="indefinite"><mpath href="#route-b"/></animateMotion>
-              </circle>
-              <circle class="packet packet-c" r="3.5" filter="url(#glow)">
-                <animateMotion dur="6.2s" begin=".6s" repeatCount="indefinite"><mpath href="#route-c"/></animateMotion>
-              </circle>
-            </svg>
-
-            <div class="console-scan" aria-hidden="true"></div>
-            <div class="console-corner corner-tl" aria-hidden="true"></div>
-            <div class="console-corner corner-br" aria-hidden="true"></div>
+          <div class="profile-strip" aria-hidden="true">
+            <span>NETWORK</span><i></i><span>INFRA</span><i></i><span>PROJECTS</span><i></i><span>DEV</span>
           </div>
-
-          <div class="console-footer">
-            <div><span>DESIGN</span><strong>Architecture</strong></div>
-            <div><span>BUILD</span><strong>Implementation</strong></div>
-            <div><span>VERIFY</span><strong>Commissioning</strong></div>
-          </div>
-        </div>
+        </aside>
       </div>
 
       <div class="hero-scrollcue" aria-hidden="true"><span></span>SCROLL TO EXPLORE</div>
