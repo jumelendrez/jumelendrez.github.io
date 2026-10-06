@@ -135,45 +135,43 @@
 })();
 
 
-/* V5 profile + restrained portrait interaction */
+/* V5.2 integrated hero interaction */
 (() => {
-  const profile = document.getElementById('profile-cutout');
-  if (profile) {
-    const revealProfile = () => profile.classList.add('is-loaded');
-    if (profile.complete) revealProfile();
-    else profile.addEventListener('load', revealProfile, { once: true });
-  }
-
-  const stage = document.querySelector('.hero-portrait-v5');
+  const stage = document.querySelector('.hero-visual-v5-2');
   const finePointer = window.matchMedia('(pointer:fine)').matches;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (stage && finePointer && !reduceMotion) {
-    const grid = stage.querySelector('.portrait-grid-v5');
-    const aura = stage.querySelector('.portrait-aura-v5');
+  if (!stage || !finePointer || reduceMotion) return;
 
-    stage.addEventListener('pointermove', event => {
-      const rect = stage.getBoundingClientRect();
-      const nx = (event.clientX - rect.left) / rect.width - 0.5;
-      const ny = (event.clientY - rect.top) / rect.height - 0.5;
+  const grid = stage.querySelector('.hero-gridback-v5-2');
+  const halo = stage.querySelector('.hero-halo-v5-2');
+  const profile = stage.querySelector('.hero-profile-v5-2');
 
-      if (grid) {
-        grid.style.transform =
-          `translate3d(${nx * -5}px,${ny * -4}px,0)`;
-      }
+  stage.addEventListener('pointermove', event => {
+    const rect = stage.getBoundingClientRect();
+    const nx = (event.clientX - rect.left) / rect.width - 0.5;
+    const ny = (event.clientY - rect.top) / rect.height - 0.5;
 
-      if (aura) {
-        aura.style.marginLeft = `${nx * 5}px`;
-        aura.style.marginTop = `${ny * 4}px`;
-      }
-    });
+    if (grid) {
+      grid.style.transform = `translate3d(${nx * -6}px,${ny * -5}px,0)`;
+    }
 
-    stage.addEventListener('pointerleave', () => {
-      if (grid) grid.style.transform = '';
-      if (aura) {
-        aura.style.marginLeft = '';
-        aura.style.marginTop = '';
-      }
-    });
-  }
+    if (halo) {
+      halo.style.marginLeft = `${nx * 5}px`;
+      halo.style.marginTop = `${ny * 4}px`;
+    }
+
+    if (profile) {
+      profile.style.marginLeft = `${nx * 3}px`;
+    }
+  });
+
+  stage.addEventListener('pointerleave', () => {
+    if (grid) grid.style.transform = '';
+    if (halo) {
+      halo.style.marginLeft = '';
+      halo.style.marginTop = '';
+    }
+    if (profile) profile.style.marginLeft = '';
+  });
 })();
