@@ -135,38 +135,13 @@
 })();
 
 
-/* V4 profile hydration + cinematic stage interaction */
+/* V4 profile + cinematic stage interaction */
 (() => {
   const profile = document.getElementById('profile-cutout');
-
-  if (profile && profile.dataset.parts === 'true') {
-    const partUrls = [1, 2, 3, 4].map(
-      number => `assets/images/profile-v4/part${number}.txt`
-    );
-
-    Promise.all(
-      partUrls.map(url =>
-        fetch(url, { cache: 'force-cache' }).then(response => {
-          if (!response.ok) throw new Error(`Profile asset part failed: ${url}`);
-          return response.text();
-        })
-      )
-    )
-      .then(parts => {
-        const dataUri =
-          'data:image/webp;base64,' +
-          parts.join('').replace(/\s+/g, '');
-
-        const revealLoadedProfile = () => profile.classList.add('is-loaded');
-        profile.addEventListener('load', revealLoadedProfile, { once: true });
-        profile.src = dataUri;
-
-        if (profile.complete) revealLoadedProfile();
-      })
-      .catch(() => {
-        // Graceful fallback to the existing repository profile image.
-        profile.classList.add('is-loaded');
-      });
+  if (profile) {
+    const revealProfile = () => profile.classList.add('is-loaded');
+    if (profile.complete) revealProfile();
+    else profile.addEventListener('load', revealProfile, { once: true });
   }
 
   const stage = document.querySelector('.hero-stage-v4');
