@@ -133,3 +133,69 @@
   const year = document.getElementById('current-year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
+
+
+/* V4 profile hydration + cinematic stage interaction */
+(() => {
+  const profile = document.getElementById('profile-cutout');
+
+  if (profile && profile.dataset.parts === 'true') {
+    const partUrls = [1, 2, 3, 4].map(
+      number => `assets/images/profile-v4/part${number}.txt`
+    );
+
+    Promise.all(
+      partUrls.map(url =>
+        fetch(url, { cache: 'force-cache' }).then(response => {
+          if (!response.ok) throw new Error(`Profile asset part failed: ${url}`);
+          return response.text();
+        })
+      )
+    )
+      .then(parts => {
+        const dataUri =
+          'data:image/webp;base64,' +
+          parts.join('').replace(/\s+/g, '');
+
+        const revealLoadedProfile = () => profile.classList.add('is-loaded');
+        profile.addEventListener('load', revealLoadedProfile, { once: true });
+        profile.src = dataUri;
+
+        if (profile.complete) revealLoadedProfile();
+      })
+      .catch(() => {
+        // Graceful fallback to the existing repository profile image.
+        profile.classList.add('is-loaded');
+      });
+  }
+
+  const stage = document.querySelector('.hero-stage-v4');
+  const finePointer = window.matchMedia('(pointer:fine)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (stage && finePointer && !reduceMotion) {
+    const grid = stage.querySelector('.stage-grid');
+    const capabilityStack = stage.querySelector('.hero-capability-stack');
+
+    stage.addEventListener('pointermove', event => {
+      const rect = stage.getBoundingClientRect();
+      const nx = (event.clientX - rect.left) / rect.width - 0.5;
+      const ny = (event.clientY - rect.top) / rect.height - 0.5;
+
+      if (grid) {
+        grid.style.transform =
+          `translate3d(${nx * -7}px,${ny * -5}px,0)`;
+      }
+
+      if (capabilityStack) {
+        capabilityStack.style.transform =
+          `translate3d(${nx * 6}px,${ny * 5}px,0)`;
+      }
+    });
+
+    stage.addEventListener('pointerleave', () => {
+      if (grid) grid.style.transform = '';
+      if (capabilityStack) capabilityStack.style.transform = '';
+    });
+  }
+})();
