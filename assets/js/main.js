@@ -1,8 +1,11 @@
 (() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('.site-header');
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.site-nav');
   const navLinks = nav ? [...nav.querySelectorAll('a[href^="#"]')] : [];
+  const progressBar = document.getElementById('scroll-progress-bar');
+  const cursorGlow = document.querySelector('.cursor-glow');
 
   const closeNav = () => {
     if (!nav || !navToggle) return;
@@ -17,29 +20,59 @@
       navToggle.setAttribute('aria-expanded', String(open));
       navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     });
+
     navLinks.forEach(link => link.addEventListener('click', closeNav));
+
+    document.addEventListener('click', event => {
+      if (!nav.classList.contains('is-open')) return;
+      if (nav.contains(event.target) || navToggle.contains(event.target)) return;
+      closeNav();
+    });
   }
 
-  const updateHeader = () => {
-    if (header) header.classList.toggle('is-scrolled', window.scrollY > 12);
+  const updateScrollUI = () => {
+    const y = window.scrollY;
+    if (header) header.classList.toggle('is-scrolled', y > 12);
+
+    if (progressBar) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? Math.min(100, Math.max(0, y / max * 100)) : 0;
+      progressBar.style.width = pct + '%';
+    }
+
+    const rail = document.querySelector('.experience-rail');
+    const railProgress = document.querySelector('.experience-progress span');
+    if (rail && railProgress) {
+      const rect = rail.getBoundingClientRect();
+      const viewportPoint = window.innerHeight * 0.62;
+      const travelled = viewportPoint - rect.top;
+      const pct = Math.min(100, Math.max(0, travelled / rect.height * 100));
+      railProgress.style.height = pct + '%';
+    }
   };
-  updateHeader();
-  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  updateScrollUI();
+  window.addEventListener('scroll', updateScrollUI, { passive: true });
+  window.addEventListener('resize', updateScrollUI);
 
   const revealItems = [...document.querySelectorAll('[data-reveal]')];
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (reduceMotion || !('IntersectionObserver' in window)) {
     revealItems.forEach(item => item.classList.add('is-visible'));
   } else {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        const group = entry.target.parentElement
+          ? [...entry.target.parentElement.querySelectorAll(':scope > [data-reveal]')]
+          : [];
+        const index = Math.max(0, group.indexOf(entry.target));
+        entry.target.style.transitionDelay = Math.min(index * 70, 280) + 'ms';
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
     revealItems.forEach(item => observer.observe(item));
   }
 
@@ -55,8 +88,46 @@
           link.classList.toggle('is-active', link.getAttribute('href') === '#' + entry.target.id);
         });
       });
-    }, { rootMargin: '-35% 0px -55% 0px' });
+    }, { rootMargin: '-38% 0px -52% 0px' });
+
     sections.forEach(section => sectionObserver.observe(section));
+  }
+
+  if (!reduceMotion && cursorGlow && window.matchMedia('(pointer:fine)').matches) {
+    window.addEventListener('pointermove', event => {
+      cursorGlow.style.left = event.clientX + 'px';
+      cursorGlow.style.top = event.clientY + 'px';
+    }, { passive: true });
+  }
+
+  if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+    document.querySelectorAll('.magnetic').forEach(element => {
+      element.addEventListener('pointermove', event => {
+        const rect = element.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+        element.style.transform = 'translate(' + (x * 0.08) + 'px,' + (y * 0.12) + 'px)';
+      });
+      element.addEventListener('pointerleave', () => {
+        element.style.transform = '';
+      });
+    });
+
+    document.querySelectorAll('.dossier').forEach(card => {
+      const visual = card.querySelector('.dossier-visual');
+      if (!visual) return;
+
+      card.addEventListener('pointermove', event => {
+        const rect = card.getBoundingClientRect();
+        const nx = (event.clientX - rect.left) / rect.width - 0.5;
+        const ny = (event.clientY - rect.top) / rect.height - 0.5;
+        visual.style.transform = 'translate3d(' + (nx * -7) + 'px,' + (ny * -7) + 'px,0) scale(1.015)';
+      });
+
+      card.addEventListener('pointerleave', () => {
+        visual.style.transform = '';
+      });
+    });
   }
 
   const year = document.getElementById('current-year');
