@@ -3,25 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#08111f">
+  <meta name="theme-color" content="#050b13">
   <meta name="description" content="Sanitized case study: Enterprise Wi-Fi & Network Deployment — BGC, Taguig City.">
   <title>Enterprise Wi-Fi & Network Deployment — BGC, Taguig City | Jake Melendrez</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <script src="../../assets/js/main.js" defer></script>
 </head>
-<body>
+<body class="case-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
   <header class="site-header">
     <div class="container nav-shell">
       <a class="brand" href="../../#top" aria-label="Jake Melendrez home">
         <span class="brand-mark" aria-hidden="true">JM</span>
-        <span class="brand-name">Jake Melendrez</span>
+        <span class="brand-copy"><strong>Jake Melendrez</strong><small>Infrastructure / Systems</small></span>
       </a>
+
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
         <span></span><span></span><span></span>
       </button>
+
       <nav class="site-nav" id="site-nav" aria-label="Case study navigation">
         <a href="../../#work">Selected Work</a>
+        <a href="../../#expertise">Expertise</a>
         <a class="nav-cta" href="../../#contact">Contact</a>
       </nav>
     </div>
@@ -30,28 +38,38 @@
   <main id="main-content">
     <section class="case-hero">
       <div class="container">
-        <a class="breadcrumb" href="../../#work"><span aria-hidden="true">←</span> Back to Selected Work</a>
-        <p class="section-kicker" style="margin-top:38px;">Case Study · Network Infrastructure</p>
-        <h1 class="case-title">Enterprise Wi-Fi & Network Deployment — BGC, Taguig City</h1>
-        <p class="case-summary">A sanitized overview of an enterprise network and wireless deployment focused on reliability, scalable coverage, centralized administration, and controlled guest connectivity.</p>
+        <a class="case-breadcrumb" href="../../#work">← Back to Selected Work</a>
 
-        <div class="case-meta-grid">
-          <div><span>Role</span><strong>Network Engineer / Project Lead</strong></div>
-          <div><span>Location</span><strong>BGC, Taguig City</strong></div>
-          <div><span>Category</span><strong>Network Infrastructure</strong></div>
-          <div><span>Status</span><strong>Implemented</strong></div>
+        <div class="case-hero-grid">
+          <div data-reveal="left">
+            <p class="case-kicker">PROJECT / 01 · NETWORK INFRASTRUCTURE</p>
+            <h1 class="case-title">Enterprise Wi-Fi & Network Deployment — BGC, Taguig City</h1>
+            <p class="case-summary">A sanitized overview of an enterprise network and wireless deployment focused on reliable connectivity, scalable coverage, centralized administration, and controlled guest access.</p>
+          </div>
+
+          <aside class="case-status-panel" data-reveal="right" aria-label="Project summary">
+            <div class="case-status-head"><span>PROJECT STATUS</span><b>COMPLETED / IMPLEMENTED</b></div>
+            <div class="case-meta-list">
+              <div><span>Role</span><strong>Network Engineer / Project Lead</strong></div>
+              <div><span>Location</span><strong>BGC, Taguig City</strong></div>
+              <div><span>Category</span><strong>Network Infrastructure</strong></div>
+              <div><span>Focus</span><strong>Enterprise Network + Wireless</strong></div>
+            </div>
+          </aside>
         </div>
 
-        <div class="case-visual" aria-label="Abstract infrastructure architecture visualization">
-          <div class="architecture-strip">
+        <div class="case-visual" data-reveal="up">
+          <div class="blueprint-grid"></div>
+          <div class="case-flow">
             <span>Dual ISP</span><i></i><span>Firewall</span><i></i><span>Switching</span><i></i><span>Enterprise Wi-Fi</span><i></i><span>Guest Network</span>
           </div>
+          <div class="console-scan" aria-hidden="true"></div>
         </div>
       </div>
     </section>
 
-    <section class="section section-muted">
-      <div class="container case-body">
+    <section class="section">
+      <div class="container case-content-wrap">
         <aside class="case-nav" aria-label="Case study sections">
           <a href="#overview">Overview</a>
           <a href="#objective">Objective</a>
@@ -64,20 +82,20 @@
         </aside>
 
         <div class="case-content">
-          <section id="overview" data-reveal>
-            <p class="section-kicker">Overview</p>
-            <h2>Enterprise connectivity designed as one system.</h2>
-            <p>The project combined perimeter security, managed switching, enterprise wireless, and multi-provider connectivity into a coordinated infrastructure design. Public details are intentionally generalized to protect the client and production environment.</p>
+          <section id="overview" data-reveal="up">
+            <p class="section-kicker">OVERVIEW</p>
+            <h2>Enterprise connectivity treated as one coordinated system.</h2>
+            <p>The project combined perimeter security, managed switching, enterprise wireless, and multi-provider connectivity into a coordinated infrastructure deployment. Public details are intentionally generalized to protect the client and the production environment.</p>
           </section>
 
-          <section id="objective" data-reveal>
-            <p class="section-kicker">Objective</p>
+          <section id="objective" data-reveal="up">
+            <p class="section-kicker">OBJECTIVE</p>
             <h2>Reliable business connectivity with room to scale.</h2>
-            <p>The goal was to establish a stable network foundation that could support day-to-day business connectivity, managed wireless access, guest services, and operational growth without exposing the internal design publicly.</p>
+            <p>The objective was to establish a stable network foundation that could support business connectivity, managed wireless access, guest services, and future operational growth while keeping administration practical.</p>
           </section>
 
-          <section id="scope" data-reveal>
-            <p class="section-kicker">Scope</p>
+          <section id="scope" data-reveal="up">
+            <p class="section-kicker">SCOPE</p>
             <h2>From planning through commissioning.</h2>
             <ul>
               <li>Network planning and implementation coordination</li>
@@ -89,14 +107,14 @@
             </ul>
           </section>
 
-          <section id="solution" data-reveal>
-            <p class="section-kicker">Solution Approach</p>
+          <section id="solution" data-reveal="up">
+            <p class="section-kicker">SOLUTION APPROACH</p>
             <h2>Layered, manageable, and operationally practical.</h2>
-            <p>The design separated edge connectivity, switching, wireless management, and guest access responsibilities so each layer could be administered and validated independently. Multi-provider internet connectivity was incorporated at the edge to support continuity and operational resilience.</p>
+            <p>The design separated edge connectivity, switching, wireless management, and guest access responsibilities so each layer could be administered and validated independently. Multi-provider internet connectivity was incorporated at the edge to support continuity and resilience.</p>
           </section>
 
-          <section id="technologies" data-reveal>
-            <p class="section-kicker">Technologies</p>
+          <section id="technologies" data-reveal="up">
+            <p class="section-kicker">TECHNOLOGIES</p>
             <h2>Enterprise platforms selected for the deployment.</h2>
             <div class="tag-row">
               <span>Fortinet Firewall</span>
@@ -107,26 +125,27 @@
             </div>
           </section>
 
-          <section id="methodology" data-reveal>
-            <p class="section-kicker">Implementation Methodology</p>
+          <section id="methodology" data-reveal="up">
+            <p class="section-kicker">IMPLEMENTATION METHODOLOGY</p>
             <h2>Plan, integrate, validate.</h2>
             <p>Implementation followed a staged sequence: confirm the design, prepare device and connectivity dependencies, integrate the wired and wireless layers, verify management visibility, then test user and guest connectivity before commissioning.</p>
           </section>
 
-          <section id="testing" data-reveal>
-            <p class="section-kicker">Testing & Commissioning</p>
+          <section id="testing" data-reveal="up">
+            <p class="section-kicker">TESTING & COMMISSIONING</p>
             <h2>Validation focused on real operating paths.</h2>
-            <p>Commissioning covered connectivity, switching paths, wireless availability, guest access behavior, management visibility, and internet-path validation. Exact addressing, VLAN identifiers, device quantities, and security policies are intentionally omitted.</p>
+            <p>Commissioning covered connectivity, switching paths, wireless availability, guest access behavior, management visibility, and internet-path validation.</p>
+            <p class="case-note">Exact addressing, VLAN identifiers, device quantities, security policies, building identity, and other client-sensitive details are intentionally omitted from the public case study.</p>
           </section>
 
-          <section id="outcome" data-reveal>
-            <p class="section-kicker">Outcome</p>
+          <section id="outcome" data-reveal="up">
+            <p class="section-kicker">OUTCOME</p>
             <h2>A structured foundation for business connectivity.</h2>
             <p>The completed deployment established a centrally manageable network and wireless foundation designed for reliable business use, controlled guest connectivity, and future operational expansion.</p>
           </section>
 
-          <section data-reveal>
-            <p class="section-kicker">Related Capabilities</p>
+          <section data-reveal="up">
+            <p class="section-kicker">RELATED CAPABILITIES</p>
             <div class="tag-row">
               <span>Network Engineering</span>
               <span>Wireless Infrastructure</span>
@@ -144,6 +163,7 @@
     <div class="container footer-inner">
       <p>© <span id="current-year">2026</span> Jake Melendrez</p>
       <p>Client identity and sensitive infrastructure details intentionally withheld.</p>
+      <a href="../../#work">BACK TO PROJECTS ↑</a>
     </div>
   </footer>
 </body>
