@@ -1,35 +1,44 @@
-/* V6.13 HYBRID HERO
-   Final structural approach:
-   - photographic environment is the background layer
-   - Jake remains a separate transparent full-body asset
-   - all copy/navigation/buttons remain real HTML
-   - no redundant HUD cards or repeated labels
+/* V6.14 APPROVED HYBRID HERO
+   Approved visual plate = user-supplied Neon Systems Portfolio artwork.
+   Interactive content remains real HTML/CSS. The baked text/navigation on the
+   artwork is masked; the person and cinematic environment remain part of the plate.
 */
 
 .v6-page{
-  --hero-bg:url("https://images.pexels.com/photos/17505092/pexels-photo-17505092.jpeg?auto=compress&cs=tinysrgb&w=1920");
+  --approved-hero:url("https://d2ol7oe51mr4n9.cloudfront.net/user_3JDVisYPa5evntPvESaH0Tl0oOK/1afba83a-f0b7-4175-bc1a-665cc385f94d.png");
 }
 
 @media (min-width:981px){
-
   .v6-page .site-header{
-    height:76px;
+    height:78px;
   }
 
   .v6-page .site-header:not(.is-scrolled){
-    background:linear-gradient(180deg,rgba(1,7,12,.95),rgba(1,7,12,.70) 68%,transparent);
-    border-bottom:1px solid rgba(21,210,233,.10);
+    background:linear-gradient(180deg,rgba(1,7,11,.98) 0%,rgba(1,7,11,.94) 72%,rgba(1,7,11,.60) 100%);
+    border-bottom:1px solid rgba(39,223,239,.14);
     backdrop-filter:none;
   }
 
   .v6-page .site-header:not(.is-scrolled) .nav-shell{
-    min-height:76px;
+    min-height:78px;
+  }
+
+  /* The approved artwork already has the human correctly seated on the floor.
+     Hide the old generated HUD/person layers so they cannot duplicate it. */
+  .v6-atmosphere,
+  .v6-frame,
+  .v6-scene,
+  .v6-portrait-zone,
+  .v6-scroll,
+  .v6-version,
+  .v6-scan{
+    display:none!important;
   }
 
   .v6-hero{
-    margin-top:-76px;
+    margin-top:-78px;
     padding:0;
-    background:#02090f;
+    background:#02080d;
   }
 
   .v6-wrap{
@@ -38,119 +47,62 @@
   }
 
   .v6-shell{
-    height:clamp(700px,76svh,820px);
-    min-height:700px;
+    position:relative;
+    height:clamp(690px,75svh,820px);
+    min-height:690px;
     max-height:820px;
     overflow:hidden;
     isolation:isolate;
     background:
+      /* mask the artwork's original top navigation */
+      linear-gradient(180deg,
+        rgba(1,7,11,.99) 0 86px,
+        rgba(1,7,11,.84) 106px,
+        rgba(1,7,11,0) 154px),
+      /* mask the artwork's original left-side copy/buttons */
       linear-gradient(90deg,
-        rgba(1,8,13,.94) 0%,
-        rgba(1,8,13,.89) 24%,
-        rgba(1,9,15,.72) 42%,
-        rgba(1,8,13,.36) 60%,
-        rgba(1,7,12,.16) 77%,
-        rgba(1,7,12,.34) 100%),
-      linear-gradient(180deg,rgba(1,7,12,.12),rgba(1,7,12,.08) 62%,rgba(1,7,12,.52)),
-      var(--hero-bg) center 50% / cover no-repeat;
-    box-shadow:inset 0 0 150px rgba(0,0,0,.42),0 28px 80px rgba(0,0,0,.28);
+        rgba(1,7,11,.99) 0%,
+        rgba(1,7,11,.98) 33%,
+        rgba(1,7,11,.90) 40%,
+        rgba(1,7,11,.48) 48%,
+        rgba(1,7,11,.08) 57%,
+        transparent 66%),
+      var(--approved-hero) center 50% / cover no-repeat;
+    box-shadow:
+      inset 0 0 130px rgba(0,0,0,.30),
+      0 26px 78px rgba(0,0,0,.30);
   }
 
   .v6-shell::before{
     content:"";
     position:absolute;
     inset:0;
-    z-index:0;
+    z-index:1;
     pointer-events:none;
     background:
-      radial-gradient(circle at 72% 42%,rgba(0,220,255,.09),transparent 26%),
-      radial-gradient(ellipse at 69% 90%,rgba(0,215,255,.11),transparent 30%),
-      linear-gradient(90deg,rgba(0,0,0,.24),transparent 36% 78%,rgba(0,0,0,.10));
+      radial-gradient(circle at 71% 48%,rgba(0,224,255,.035),transparent 29%),
+      linear-gradient(90deg,rgba(0,0,0,.08),transparent 53% 88%,rgba(0,0,0,.10));
   }
 
   .v6-shell::after{
     content:"";
     position:absolute;
+    z-index:1;
     left:0;
     right:0;
     bottom:0;
-    height:22%;
-    z-index:1;
+    height:19%;
     pointer-events:none;
-    background:
-      radial-gradient(ellipse at 69% 100%,rgba(0,223,255,.24),transparent 45%),
-      radial-gradient(ellipse at 37% 100%,rgba(255,174,55,.10),transparent 30%),
-      linear-gradient(180deg,transparent,rgba(1,7,12,.56));
+    background:linear-gradient(180deg,transparent,rgba(0,4,8,.18));
   }
 
-  /* Simplify old HUD layers; the approved composition no longer needs them. */
-  .v6-hud-panel,
-  .v6-tag,
-  .v6-mindset,
-  .v6-right-rail,
-  .v6-version{
-    display:none!important;
-  }
-
-  .v6-atmosphere{
-    opacity:.16;
-  }
-
-  .v6-atmosphere .v6-pillar{
-    display:none;
-  }
-
-  .v6-scene{
-    z-index:2;
-    left:39%;
-    top:7%;
-    width:55%;
-    height:79%;
-    opacity:.22;
-    mix-blend-mode:screen;
-    filter:saturate(1.10);
-  }
-
-  .v6-scene>rect,
-  .v6-beams,
-  .v6-floor-lines,
-  .v6-circuit-traces,
-  .v6-globe-dots{
-    opacity:.10;
-  }
-
-  .v6-orbits,
-  .v6-network,
-  .v6-nodes,
-  .v6-packets,
-  .v6-floor-rings{
-    opacity:.42;
-  }
-
-  .v6-frame{
-    z-index:11;
-    left:2.2%;
-    top:2.6%;
-    width:95.6%;
-    height:93.8%;
-  }
-
-  .v6-frame-main{
-    stroke:rgba(53,221,241,.54);
-  }
-
-  .v6-frame-top,
-  .v6-frame-bottom{
-    opacity:.45;
-  }
-
-  /* Coded content */
+  /* Real coded content aligned to the approved visual. */
   .v6-copy{
-    z-index:8;
-    left:8.2%;
-    top:20.2%;
-    width:39%;
-    max-width:565px;
+    z-index:4;
+    left:8.1%;
+    top:21.3%;
+    width:40%;
+    max-width:570px;
   }
 
   .v6-eyebrow{
@@ -158,51 +110,68 @@
   }
 
   .v6-first{
-    font-size:clamp(6.3rem,8.2vw,8.1rem);
+    color:#f7fafb;
+    font-size:clamp(6.3rem,8.2vw,8.15rem);
     line-height:.79;
+    letter-spacing:-.076em;
   }
 
   .v6-last{
     margin-top:8px;
-    font-size:clamp(4.7rem,6.4vw,6.15rem);
-    line-height:.89;
+    color:rgba(255,255,255,.008);
     -webkit-text-stroke:1.25px rgba(240,248,251,.82);
+    font-size:clamp(4.7rem,6.3vw,6.1rem);
+    line-height:.89;
   }
 
   .v6-roles{
     margin-top:22px;
-    color:#f3f7f9;
-    font-size:clamp(.96rem,1.02vw,1.08rem);
+    color:#f3f7f8;
+    font-size:clamp(.95rem,1vw,1.07rem);
     line-height:1.48;
+    text-shadow:0 2px 12px rgba(0,0,0,.55);
   }
 
   .v6-summary{
-    max-width:520px;
-    margin-top:14px;
-    color:#b1c0c9;
+    max-width:535px;
+    margin-top:15px;
+    color:#c0ccd2;
     font-size:clamp(.92rem,1vw,1.03rem);
     line-height:1.55;
+    text-shadow:0 2px 12px rgba(0,0,0,.62);
   }
 
   .v6-actions{
     gap:16px;
-    margin-top:23px;
+    margin-top:25px;
   }
 
   .v6-actions .button{
-    min-width:188px;
-    min-height:50px;
-    border-radius:5px;
+    min-width:190px;
+    min-height:52px;
+    border-radius:6px;
+  }
+
+  .v6-actions .button-primary{
+    background:linear-gradient(135deg,#11dfe8,#34d9f7);
+    color:#031015;
+    box-shadow:0 12px 30px rgba(0,218,240,.16);
+  }
+
+  .v6-actions .button-ghost{
+    background:rgba(2,12,18,.55);
+    border-color:rgba(21,224,240,.68);
+    backdrop-filter:blur(8px);
   }
 
   .v6-value-strip{
     grid-template-columns:repeat(3,1fr);
     width:100%;
-    max-width:570px;
-    margin-top:30px;
+    max-width:575px;
+    margin-top:31px;
     padding-top:18px;
-    border-top:1px solid rgba(45,216,235,.34);
-    background:linear-gradient(90deg,rgba(1,15,22,.23),transparent);
+    border-top:1px solid rgba(38,219,239,.38);
+    background:linear-gradient(90deg,rgba(0,13,20,.48),rgba(0,13,20,.12),transparent);
   }
 
   .v6-value{
@@ -214,149 +183,125 @@
   }
 
   .v6-value strong{
+    color:#eef7f9;
     font-size:.76rem;
     line-height:1.28;
   }
 
   .v6-value small{
-    display:none;
+    display:none!important;
   }
 
-  /* Full-body overlay: feet must sit naturally on the reflective floor. */
-  .v6-portrait-zone{
-    z-index:5;
-  }
-
-  .v6-portrait-glow{
-    left:69.4%;
-    top:49%;
-    width:31%;
-    height:68%;
-    background:radial-gradient(ellipse at center,rgba(0,222,255,.14),rgba(0,222,255,.035) 47%,transparent 74%);
-    filter:blur(11px);
-  }
-
-  .v6-portrait-rig{
-    left:69.6%;
-    bottom:3.0%;
-    height:86.5%;
-    transform:translateX(-50%) rotate(-1.15deg);
-    transform-origin:50% 88%;
-    animation:v6HeroPersonFloat 7.2s ease-in-out infinite;
-  }
-
-  .v6-portrait-rig::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    top:98.5%;
-    width:60%;
-    height:28%;
-    transform:translateX(-50%) scaleY(-1);
-    transform-origin:top center;
-    background:url("../images/jake-profile-full-v6.png") center top / contain no-repeat;
-    opacity:.085;
-    filter:blur(1.6px) saturate(.86);
+  /* Match the approved composition: nav centered over the hero, no duplicate
+     Infrastructure / Systems tagline in the header brand. */
+  .v6-page .site-header:not(.is-scrolled) .brand{
+    opacity:0;
     pointer-events:none;
-    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.64),transparent 82%);
-    mask-image:linear-gradient(to bottom,rgba(0,0,0,.64),transparent 82%);
   }
 
-  .v6-portrait{
-    filter:
-      contrast(1.045)
-      saturate(1.035)
-      brightness(1.01)
-      drop-shadow(0 28px 23px rgba(0,0,0,.52))
-      drop-shadow(0 0 10px rgba(0,220,255,.08));
+  .v6-page .site-header:not(.is-scrolled) .site-nav{
+    margin-left:auto;
+    margin-right:auto;
   }
 
-  @keyframes v6HeroPersonFloat{
-    0%,100%{transform:translateX(-50%) rotate(-1.15deg) translateY(0)}
-    50%{transform:translateX(-50%) rotate(-1.15deg) translateY(-3px)}
-  }
-
-  .v6-scroll{
-    left:8.2%;
-    bottom:5.2%;
+  .v6-page .site-header:not(.is-scrolled) .v6-connect{
+    position:absolute;
+    right:3.2%;
   }
 
   .v6-featured-peek{
-    padding-top:26px;
+    padding-top:27px;
     background:
-      radial-gradient(circle at 70% -20%,rgba(0,215,242,.09),transparent 34%),
+      radial-gradient(circle at 70% -24%,rgba(0,215,242,.10),transparent 34%),
       linear-gradient(180deg,#06111a,#07131d);
   }
 }
 
-@media (min-width:981px) and (max-height:840px){
+/* Standard laptop at 100% zoom. */
+@media (min-width:981px) and (max-height:850px){
   .v6-shell{
-    height:660px;
-    min-height:660px;
-    max-height:660px;
+    height:650px;
+    min-height:650px;
+    max-height:650px;
   }
 
   .v6-copy{
-    top:17.4%;
+    left:7.8%;
+    top:18.2%;
   }
 
-  .v6-first{font-size:5.55rem}
-  .v6-last{font-size:4.15rem}
+  .v6-first{font-size:5.65rem}
+  .v6-last{font-size:4.25rem}
   .v6-roles{margin-top:14px;font-size:.88rem}
-  .v6-summary{margin-top:9px;font-size:.85rem;line-height:1.5}
-  .v6-actions{margin-top:16px}
+  .v6-summary{margin-top:10px;font-size:.85rem;line-height:1.48;max-width:490px}
+  .v6-actions{margin-top:17px}
   .v6-actions .button{min-height:44px}
-  .v6-value-strip{margin-top:17px;padding-top:13px}
+  .v6-value-strip{margin-top:18px;padding-top:13px}
   .v6-value{min-height:58px}
-
-  .v6-portrait-rig{
-    height:88%;
-    bottom:2.2%;
-  }
 }
 
-/* Tablet/mobile: retain the same visual logic, but stack it cleanly. */
+/* Tablet/mobile: preserve the approved atmosphere but keep all readable copy real. */
 @media(max-width:980px){
   .v6-page .site-header:not(.is-scrolled){
-    background:rgba(3,10,16,.86);
+    background:rgba(2,9,14,.92);
     backdrop-filter:blur(14px);
   }
 
   .v6-hero{
     margin-top:0;
-    padding:10px 0 34px;
-    background:#030c14;
+    padding:8px 0 34px;
+    background:#020a10;
   }
 
   .v6-wrap{
     width:min(calc(100% - 18px),760px);
   }
 
-  .v6-shell{
-    height:auto;
-    min-height:0;
-    max-height:none;
-    padding:34px 22px 24px;
-    background:
-      linear-gradient(180deg,rgba(2,9,15,.58),rgba(2,9,15,.82) 48%,#030c14 100%),
-      var(--hero-bg) 64% center / auto 100% no-repeat;
+  .v6-atmosphere,
+  .v6-frame,
+  .v6-scene,
+  .v6-portrait-zone,
+  .v6-scroll,
+  .v6-version,
+  .v6-scan{
+    display:none!important;
   }
 
-  .v6-hud-panel,
-  .v6-tag,
-  .v6-mindset,
-  .v6-right-rail,
-  .v6-version{
-    display:none!important;
+  .v6-shell{
+    height:auto;
+    min-height:720px;
+    max-height:none;
+    padding:48px 22px 32px;
+    background:
+      linear-gradient(180deg,
+        rgba(2,9,15,.26) 0%,
+        rgba(2,9,15,.42) 38%,
+        rgba(2,9,15,.88) 72%,
+        #020a10 100%),
+      linear-gradient(90deg,rgba(2,9,15,.93) 0 45%,rgba(2,9,15,.35) 68%,transparent 100%),
+      var(--approved-hero) 68% center / auto 100% no-repeat;
+  }
+
+  .v6-shell::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:linear-gradient(180deg,rgba(2,9,15,.72) 0 9%,transparent 18%);
+  }
+
+  .v6-shell::after{
+    display:none;
   }
 
   .v6-copy{
     position:relative;
-    z-index:8;
+    z-index:4;
     left:auto;
     top:auto;
-    width:auto;
-    max-width:none;
+    width:100%;
+    max-width:560px;
   }
 
   .v6-eyebrow{
@@ -365,52 +310,31 @@
 
   .v6-value-strip{
     max-width:100%;
-  }
-
-  .v6-portrait-zone{
-    position:relative;
-    z-index:6;
-    inset:auto;
-    height:500px;
-    margin-top:8px;
-  }
-
-  .v6-portrait-rig{
-    left:60%;
-    bottom:0;
-    height:470px;
-    transform:translateX(-50%) rotate(-1deg);
-  }
-
-  .v6-portrait-rig::after{
-    display:none;
-  }
-
-  .v6-portrait-glow{
-    left:60%;
-    width:330px;
-    height:420px;
-  }
-
-  .v6-scroll{
-    display:none;
+    background:rgba(2,11,17,.38);
+    backdrop-filter:blur(6px);
   }
 }
 
 @media(max-width:560px){
   .v6-shell{
-    padding:28px 16px 22px;
+    min-height:690px;
+    padding:38px 16px 26px;
     background:
-      linear-gradient(180deg,rgba(2,9,15,.60),rgba(2,9,15,.88) 50%,#030c14 100%),
-      var(--hero-bg) 66% center / auto 100% no-repeat;
+      linear-gradient(180deg,
+        rgba(2,9,15,.30) 0%,
+        rgba(2,9,15,.63) 43%,
+        rgba(2,9,15,.94) 71%,
+        #020a10 100%),
+      linear-gradient(90deg,rgba(2,9,15,.91) 0 50%,rgba(2,9,15,.30) 78%,transparent),
+      var(--approved-hero) 70% center / auto 100% no-repeat;
   }
 
   .v6-first{
-    font-size:clamp(3.75rem,19.5vw,4.9rem);
+    font-size:clamp(3.7rem,19vw,4.8rem);
   }
 
   .v6-last{
-    font-size:clamp(3.08rem,16.8vw,4.2rem);
+    font-size:clamp(3rem,16.3vw,4.05rem);
   }
 
   .v6-roles{
@@ -418,6 +342,7 @@
   }
 
   .v6-summary{
+    max-width:94%;
     font-size:.92rem;
   }
 
@@ -433,24 +358,10 @@
   .v6-value-strip{
     grid-template-columns:1fr;
     gap:0;
+    margin-top:24px;
   }
 
   .v6-value{
-    min-height:58px;
-  }
-
-  .v6-portrait-zone{
-    height:425px;
-  }
-
-  .v6-portrait-rig{
-    left:61%;
-    height:395px;
-  }
-
-  .v6-portrait-glow{
-    left:61%;
-    width:260px;
-    height:340px;
+    min-height:56px;
   }
 }
