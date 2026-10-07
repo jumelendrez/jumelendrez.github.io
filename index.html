@@ -369,77 +369,71 @@
             <div class="dossier-index">PROJECT / 01</div>
             <div class="dossier-visual visual-bgc project-visual-v6">
               <div class="blueprint-grid"></div>
-              <svg class="bgc-coverage-map" viewBox="0 0 560 520" aria-hidden="true">
+              <svg class="wireless-motion" viewBox="0 0 560 520" aria-hidden="true">
                 <defs>
-                  <filter id="bgcSignalGlow" x="-80%" y="-80%" width="260%" height="260%">
-                    <feGaussianBlur stdDeviation="3.6" result="blur"/>
+                  <filter id="wirelessGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="3.2" result="blur"/>
                     <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                   </filter>
                 </defs>
 
-                <g class="bgc-uplinks">
-                  <path class="wan-line wan-a" d="M92 74 C158 92 214 136 280 238"/>
-                  <path class="wan-line wan-b" d="M468 74 C402 92 346 136 280 238"/>
-                  <text x="70" y="58">WAN A</text>
-                  <text x="448" y="58">WAN B</text>
+                <g class="wireless-links">
+                  <path id="wifiP1" d="M280 262 L122 132"/>
+                  <path id="wifiP2" d="M280 262 L438 128"/>
+                  <path id="wifiP3" d="M280 262 L112 390"/>
+                  <path id="wifiP4" d="M280 262 L448 388"/>
+                  <path id="wifiP5" d="M280 262 L280 82"/>
                 </g>
 
-                <g class="bgc-access-links">
-                  <path id="bgcCoreAp1" d="M280 270 L142 160"/>
-                  <path id="bgcCoreAp2" d="M280 270 L418 160"/>
-                  <path id="bgcCoreAp3" d="M280 270 L138 382"/>
-                  <path id="bgcCoreAp4" d="M280 270 L422 382"/>
+                <g class="wireless-core">
+                  <rect x="252" y="234" width="56" height="56" rx="10"/>
+                  <circle cx="266" cy="249" r="3.2"/>
+                  <circle cx="280" cy="249" r="3.2"/>
+                  <circle cx="294" cy="249" r="3.2"/>
+                  <circle cx="266" cy="276" r="3.2"/>
+                  <circle cx="280" cy="276" r="3.2"/>
+                  <circle cx="294" cy="276" r="3.2"/>
                 </g>
 
-                <g class="bgc-ap-zone z1">
-                  <circle class="coverage-ring r1" cx="142" cy="160" r="34"/>
-                  <circle class="coverage-ring r2" cx="142" cy="160" r="50"/>
-                  <circle class="ap-node" cx="142" cy="160" r="8"/>
-                  <text x="120" y="118">AP ZONE</text>
+                <g class="wireless-ap ap1">
+                  <circle class="coverage outer" cx="122" cy="132" r="48"/>
+                  <circle class="coverage inner" cx="122" cy="132" r="31"/>
+                  <circle class="ap-dot" cx="122" cy="132" r="7"/>
                 </g>
-                <g class="bgc-ap-zone z2">
-                  <circle class="coverage-ring r1" cx="418" cy="160" r="34"/>
-                  <circle class="coverage-ring r2" cx="418" cy="160" r="50"/>
-                  <circle class="ap-node" cx="418" cy="160" r="8"/>
-                  <text x="396" y="118">AP ZONE</text>
+                <g class="wireless-ap ap2">
+                  <circle class="coverage outer" cx="438" cy="128" r="48"/>
+                  <circle class="coverage inner" cx="438" cy="128" r="31"/>
+                  <circle class="ap-dot" cx="438" cy="128" r="7"/>
                 </g>
-                <g class="bgc-ap-zone z3">
-                  <circle class="coverage-ring r1" cx="138" cy="382" r="34"/>
-                  <circle class="coverage-ring r2" cx="138" cy="382" r="50"/>
-                  <circle class="ap-node" cx="138" cy="382" r="8"/>
-                  <text x="116" y="444">AP ZONE</text>
+                <g class="wireless-ap ap3">
+                  <circle class="coverage outer" cx="112" cy="390" r="48"/>
+                  <circle class="coverage inner" cx="112" cy="390" r="31"/>
+                  <circle class="ap-dot" cx="112" cy="390" r="7"/>
                 </g>
-                <g class="bgc-ap-zone z4">
-                  <circle class="coverage-ring r1" cx="422" cy="382" r="34"/>
-                  <circle class="coverage-ring r2" cx="422" cy="382" r="50"/>
-                  <circle class="ap-node" cx="422" cy="382" r="8"/>
-                  <text x="400" y="444">AP ZONE</text>
+                <g class="wireless-ap ap4">
+                  <circle class="coverage outer" cx="448" cy="388" r="48"/>
+                  <circle class="coverage inner" cx="448" cy="388" r="31"/>
+                  <circle class="ap-dot" cx="448" cy="388" r="7"/>
                 </g>
-
-                <g class="bgc-core-node">
-                  <circle class="core-halo" cx="280" cy="270" r="54"/>
-                  <circle class="core-halo inner" cx="280" cy="270" r="40"/>
-                  <circle class="core-dot" cx="280" cy="270" r="10"/>
+                <g class="wireless-ap ap5">
+                  <circle class="coverage outer" cx="280" cy="82" r="42"/>
+                  <circle class="coverage inner" cx="280" cy="82" r="27"/>
+                  <circle class="ap-dot" cx="280" cy="82" r="7"/>
                 </g>
 
-                <circle class="bgc-flow-packet" r="4.5">
-                  <animateMotion dur="6.4s" repeatCount="indefinite" path="M92 74 C158 92 214 136 280 238 L280 270 L418 160"/>
+                <circle class="wifi-packet" r="4.5">
+                  <animateMotion dur="7.2s" repeatCount="indefinite" path="M280 262 L122 132"/>
                 </circle>
-                <circle class="bgc-flow-packet secondary" r="4">
-                  <animateMotion dur="7.6s" begin="1.4s" repeatCount="indefinite" path="M468 74 C402 92 346 136 280 238 L280 270 L138 382"/>
+                <circle class="wifi-packet alt" r="4">
+                  <animateMotion dur="8.6s" begin="1.6s" repeatCount="indefinite" path="M280 262 L448 388"/>
                 </circle>
+                <circle class="wifi-packet soft" r="3.8">
+                  <animateMotion dur="9.2s" begin="3s" repeatCount="indefinite" path="M280 262 L280 82"/>
+                </circle>
+
+                <circle class="coverage-sweep" cx="280" cy="262" r="174"/>
               </svg>
 
-              <div class="bgc-core-label">
-                <small>CORE</small>
-                <strong>BGC</strong>
-                <span>MANAGED WLAN</span>
-              </div>
-
-              <div class="bgc-legend">
-                <span><i class="wan"></i>Dual uplink</span>
-                <span><i class="wlan"></i>Wireless coverage</span>
-              </div>
               <span class="visual-caption">ENTERPRISE NETWORK / WIRELESS</span>
             </div>
             <div class="dossier-copy">
@@ -468,61 +462,56 @@
                 <span class="rack rack-d"><i></i><i></i><i></i></span>
               </div>
 
-              <svg class="tarlac-live-path" viewBox="0 0 560 520" aria-hidden="true">
+              <svg class="warehouse-motion" viewBox="0 0 560 520" aria-hidden="true">
                 <defs>
-                  <filter id="tarlacSignalGlow" x="-80%" y="-80%" width="260%" height="260%">
-                    <feGaussianBlur stdDeviation="3.4" result="blur"/>
+                  <filter id="warehouseGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="3.1" result="blur"/>
                     <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                   </filter>
                 </defs>
 
-                <path class="site-backbone" d="M280 86 L280 222 L178 300 L178 402"/>
-                <path class="site-backbone branch" d="M280 222 L386 300 L386 402"/>
-
-                <g class="tarlac-uplink">
-                  <circle cx="280" cy="78" r="9"/>
-                  <circle class="uplink-ring" cx="280" cy="78" r="24"/>
-                  <text x="250" y="45">SITE UPLINK</text>
+                <g class="warehouse-backbone">
+                  <path id="warehouseMain" d="M88 258 L202 258 L278 196 L360 258 L474 258"/>
+                  <path d="M202 258 L152 372"/>
+                  <path d="M360 258 L410 372"/>
                 </g>
 
-                <g class="tarlac-zone zone-a">
-                  <circle class="zone-ring r1" cx="178" cy="402" r="34"/>
-                  <circle class="zone-ring r2" cx="178" cy="402" r="50"/>
-                  <circle class="zone-node" cx="178" cy="402" r="8"/>
-                  <text x="150" y="466">ZONE A</text>
+                <g class="warehouse-switch">
+                  <rect x="62" y="232" width="52" height="52" rx="8"/>
+                  <circle cx="76" cy="247" r="3"/>
+                  <circle cx="88" cy="247" r="3"/>
+                  <circle cx="100" cy="247" r="3"/>
+                  <circle cx="76" cy="269" r="3"/>
+                  <circle cx="88" cy="269" r="3"/>
+                  <circle cx="100" cy="269" r="3"/>
                 </g>
 
-                <g class="tarlac-zone zone-b">
-                  <circle class="zone-ring r1" cx="386" cy="402" r="34"/>
-                  <circle class="zone-ring r2" cx="386" cy="402" r="50"/>
-                  <circle class="zone-node" cx="386" cy="402" r="8"/>
-                  <text x="358" y="466">ZONE B</text>
+                <g class="warehouse-endpoint e1">
+                  <circle class="endpoint-ring" cx="278" cy="196" r="28"/>
+                  <circle class="endpoint-dot" cx="278" cy="196" r="7"/>
+                </g>
+                <g class="warehouse-endpoint e2">
+                  <circle class="endpoint-ring" cx="474" cy="258" r="28"/>
+                  <circle class="endpoint-dot" cx="474" cy="258" r="7"/>
+                </g>
+                <g class="warehouse-endpoint e3">
+                  <circle class="endpoint-ring" cx="152" cy="372" r="28"/>
+                  <circle class="endpoint-dot" cx="152" cy="372" r="7"/>
+                </g>
+                <g class="warehouse-endpoint e4">
+                  <circle class="endpoint-ring" cx="410" cy="372" r="28"/>
+                  <circle class="endpoint-dot" cx="410" cy="372" r="7"/>
                 </g>
 
-                <g class="tarlac-core-node">
-                  <circle class="core-ring" cx="280" cy="222" r="44"/>
-                  <circle class="core-dot" cx="280" cy="222" r="10"/>
-                </g>
-
-                <circle class="tarlac-data-packet" r="4.5">
-                  <animateMotion dur="6.8s" repeatCount="indefinite" path="M280 86 L280 222 L178 300 L178 402"/>
+                <circle class="warehouse-packet" r="4.5">
+                  <animateMotion dur="7s" repeatCount="indefinite" path="M88 258 L202 258 L278 196 L360 258 L474 258"/>
                 </circle>
-                <circle class="tarlac-data-packet secondary" r="4">
-                  <animateMotion dur="7.8s" begin="1.7s" repeatCount="indefinite" path="M280 86 L280 222 L386 300 L386 402"/>
+                <circle class="warehouse-packet alt" r="4">
+                  <animateMotion dur="8.4s" begin="2.1s" repeatCount="indefinite" path="M88 258 L202 258 L152 372"/>
                 </circle>
               </svg>
 
-              <div class="tarlac-core-label">
-                <small>LIVE SITE</small>
-                <strong>TARLAC</strong>
-                <span>CONNECTIVITY PATH</span>
-              </div>
-
-              <div class="tarlac-ops">
-                <span>SITE LINK <b>UP</b></span>
-                <span>DEVICES <b>ONLINE</b></span>
-                <span>TESTING <b>PASS</b></span>
-              </div>
+              <div class="warehouse-scan" aria-hidden="true"></div>
               <span class="visual-caption">WAREHOUSE / SITE CONNECTIVITY</span>
             </div>
             <div class="dossier-copy">
