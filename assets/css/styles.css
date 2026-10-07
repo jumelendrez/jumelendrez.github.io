@@ -2595,3 +2595,59 @@ img,svg{max-width:100%;display:block}
     animation:none!important;
   }
 }
+
+
+/* V5 hybrid desktop crop — remove phone mockup from approved master */
+@media(min-width:821px){
+  .hybrid-master-shell{
+    width:min(calc(100% - 34px),1180px);
+    aspect-ratio:1120/900;
+    box-shadow:
+      0 34px 90px rgba(0,0,0,.35),
+      inset -1px 0 rgba(45,221,243,.42),
+      0 0 0 1px rgba(33,211,240,.10);
+  }
+
+  .hybrid-master-picture{
+    overflow:hidden;
+  }
+
+  .hybrid-master-image{
+    left:0;
+    top:0;
+    width:129.285714%;
+    max-width:none;
+    height:100%;
+    object-fit:fill;
+    object-position:left center;
+  }
+
+  .hybrid-hit-projects{
+    left:8.55%;
+    top:55%;
+    width:17.1%;
+    height:5.2%;
+  }
+
+  .hybrid-hit-capabilities{
+    left:27.8%;
+    top:55%;
+    width:17.1%;
+    height:5.2%;
+  }
+
+  .hybrid-orbit{
+    left:70%;
+    top:44%;
+  }
+
+  .hybrid-node-one{left:57%;top:31%}
+  .hybrid-node-two{left:79%;top:29%}
+  .hybrid-node-three{left:86%;top:53%}
+
+  .hybrid-glow{
+    left:60%;
+    top:18%;
+    width:42%;
+  }
+}
