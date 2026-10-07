@@ -3084,3 +3084,181 @@
     padding-bottom:4px;
   }
 }
+
+
+/* =========================================================
+   V6.7 ACTUAL CREDENTIAL GALLERY
+   Uses the user's real certificate images. No generated document art.
+   ========================================================= */
+
+.actual-credentials{
+  background:
+    radial-gradient(circle at 78% 6%,rgba(18,211,235,.045),transparent 24%),
+    linear-gradient(180deg,#07111b,#08131d);
+}
+
+.actual-credential-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:28px;
+  margin-top:8px;
+}
+
+.actual-credential-card{
+  min-width:0;
+}
+
+.actual-certificate-image{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:330px;
+  padding:14px;
+  overflow:hidden;
+  border:1px solid rgba(122,153,169,.20);
+  border-radius:10px;
+  background:#0b1117;
+  box-shadow:0 18px 38px rgba(0,0,0,.22);
+  text-decoration:none;
+  transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+}
+
+.actual-certificate-image::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(125deg,rgba(255,255,255,.035),transparent 19% 77%,rgba(255,255,255,.018));
+}
+
+.actual-certificate-image img{
+  position:relative;
+  z-index:1;
+  display:block;
+  width:100%;
+  max-height:360px;
+  object-fit:contain;
+  border-radius:2px;
+  background:#fff;
+  box-shadow:0 12px 26px rgba(0,0,0,.32);
+  transition:transform .28s ease;
+}
+
+.actual-certificate-image:hover{
+  transform:translateY(-3px);
+  border-color:rgba(31,221,240,.42);
+  box-shadow:0 24px 45px rgba(0,0,0,.29);
+}
+
+.actual-certificate-image:hover img{
+  transform:scale(1.012);
+}
+
+.certificate-view{
+  position:absolute;
+  z-index:3;
+  right:22px;
+  bottom:22px;
+  padding:8px 11px;
+  border:1px solid rgba(21,225,240,.38);
+  border-radius:999px;
+  color:#dffbfe;
+  background:rgba(4,13,20,.82);
+  backdrop-filter:blur(8px);
+  font-family:var(--mono);
+  font-size:.52rem;
+  letter-spacing:.055em;
+  opacity:0;
+  transform:translateY(5px);
+  transition:opacity .22s ease,transform .22s ease;
+}
+
+.actual-certificate-image:hover .certificate-view{
+  opacity:1;
+  transform:none;
+}
+
+.actual-credential-meta{
+  padding:15px 4px 0;
+}
+
+.actual-credential-meta h3{
+  margin:10px 0 5px;
+  color:#eff7f9;
+  font-size:1.08rem;
+}
+
+.actual-credential-meta p{
+  margin:0;
+  color:#8297a6;
+  font-size:.80rem;
+  line-height:1.5;
+}
+
+.actual-credential-note{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:12px;
+  align-items:start;
+  margin-top:30px;
+  padding:14px 16px;
+  border:1px solid rgba(39,177,202,.16);
+  border-radius:9px;
+  background:rgba(5,18,28,.56);
+}
+
+.actual-credential-note>span{
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#24e0ed;
+  background:rgba(30,224,238,.09);
+  font-weight:900;
+}
+
+.actual-credential-note p{
+  margin:2px 0 0;
+  color:#8195a4;
+  font-size:.78rem;
+  line-height:1.55;
+}
+
+.actual-credential-note strong{
+  color:#dce8ee;
+}
+
+@media(max-width:900px){
+  .actual-credential-grid{
+    grid-template-columns:1fr;
+  }
+
+  .actual-certificate-image{
+    min-height:260px;
+  }
+}
+
+@media(max-width:560px){
+  .actual-credential-grid{
+    gap:22px;
+  }
+
+  .actual-certificate-image{
+    min-height:210px;
+    padding:9px;
+  }
+
+  .actual-certificate-image img{
+    max-height:290px;
+  }
+
+  .certificate-view{
+    display:none;
+  }
+}
