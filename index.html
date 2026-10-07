@@ -11,9 +11,11 @@
   <meta property="og:url" content="https://jumelendrez.github.io/">
   <title>Jake Melendrez | Network Engineer, Project Manager & Developer</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/v6.css">
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/v6.js" defer></script>
 </head>
-<body>
+<body class="v6-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
@@ -47,82 +49,184 @@
   </header>
 
   <main id="main-content">
-    <section class="hero hero-v5-2" id="top">
-      <div class="container">
-        <div class="hero-frame-v5-2">
-          <span class="hero-corner-v5-2 corner-a-v5-2" aria-hidden="true"></span>
-          <span class="hero-corner-v5-2 corner-b-v5-2" aria-hidden="true"></span>
-          <span class="hero-corner-v5-2 corner-c-v5-2" aria-hidden="true"></span>
-          <span class="hero-corner-v5-2 corner-d-v5-2" aria-hidden="true"></span>
+    <section class="v6-hero" aria-labelledby="v6-title">
+      <div class="container v6-wrap">
+        <div class="v6-shell">
+          <svg class="v6-frame" viewBox="0 0 1320 900" preserveAspectRatio="none" aria-hidden="true">
+            <path class="v6-frame-main" d="M44 18H1276L1302 44V856L1276 882H44L18 856V44Z"/>
+            <path class="v6-frame-top" d="M164 18H1094"/>
+            <path class="v6-frame-bottom" d="M194 882H1122"/>
+            <path class="v6-frame-notch" d="M18 284H38M18 664H38M1282 250H1302M1282 640H1302"/>
+            <path class="v6-frame-amber" d="M18 420V468M1302 390V430"/>
+          </svg>
 
-          <div class="hero-layout-v5-2">
-            <div class="hero-intro-v5-2" data-reveal="left">
-              <p class="hero-eyebrow-v5-2"><span></span>Building connected systems for a better tomorrow</p>
-              <p class="hero-overline-v5-2">Network Engineering · Infrastructure · Systems · Project Delivery</p>
+          <svg class="v6-scene" viewBox="0 0 1320 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <pattern id="v6Grid" width="44" height="44" patternUnits="userSpaceOnUse">
+                <path d="M44 0H0V44" fill="none" stroke="#2b8aa7" stroke-opacity=".075" stroke-width="1"/>
+              </pattern>
+              <pattern id="v6Dots" width="18" height="18" patternUnits="userSpaceOnUse">
+                <circle cx="1.6" cy="1.6" r="1.1" fill="#20dbef" fill-opacity=".36"/>
+              </pattern>
+              <radialGradient id="v6Aura" cx="50%" cy="45%" r="56%">
+                <stop offset="0%" stop-color="#16dff2" stop-opacity=".16"/>
+                <stop offset="40%" stop-color="#16dff2" stop-opacity=".06"/>
+                <stop offset="100%" stop-color="#16dff2" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="v6Floor" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#0de4f4" stop-opacity="0"/>
+                <stop offset="38%" stop-color="#0de4f4" stop-opacity=".62"/>
+                <stop offset="66%" stop-color="#ffb548" stop-opacity=".42"/>
+                <stop offset="100%" stop-color="#0de4f4" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="v6GlowCyan" x="-80%" y="-80%" width="260%" height="260%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="v6GlowAmber" x="-80%" y="-80%" width="260%" height="260%">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <clipPath id="v6GlobeClip">
+                <circle cx="825" cy="430" r="300"/>
+              </clipPath>
+            </defs>
 
-              <h1 class="hero-name-v5-2">
-                <span class="hero-first-v5-2">Jake</span>
-                <span class="hero-last-v5-2">Melendrez</span>
-              </h1>
+            <rect x="0" y="0" width="1320" height="900" fill="url(#v6Grid)" opacity=".42"/>
+            <ellipse cx="825" cy="430" rx="380" ry="360" fill="url(#v6Aura)"/>
 
-              <p class="hero-roles-v5-2">
-                <span>Network Engineer</span><i></i>
-                <span>Project Manager</span><i></i>
-                <span>Infrastructure Designer</span><i></i>
-                <span>Developer</span>
-              </p>
+            <g class="v6-beams">
+              <path d="M584 0L642 0L544 900L472 900Z"/>
+              <path d="M744 0L790 0L706 900L646 900Z"/>
+              <path d="M924 0L962 0L886 900L836 900Z"/>
+            </g>
 
-              <p class="hero-summary-v5-2">I design, deploy, and manage network infrastructure, business systems, and technology projects from planning through implementation and commissioning.</p>
-            </div>
+            <g clip-path="url(#v6GlobeClip)" class="v6-globe-dots">
+              <rect x="500" y="100" width="650" height="650" fill="url(#v6Dots)"/>
+              <path d="M532 242C646 130 795 102 942 143C1075 181 1149 280 1152 407C1155 538 1077 649 942 702C785 764 623 721 528 606C449 510 449 335 532 242Z"/>
+              <path d="M560 184C695 236 788 271 888 365C982 454 1030 545 1084 667"/>
+              <path d="M542 590C661 530 776 476 903 428C1000 391 1082 313 1140 242"/>
+              <path d="M618 124C652 248 687 361 744 468C812 595 891 673 1011 730"/>
+            </g>
 
-            <div class="hero-visual-v5-2" data-reveal="right" aria-label="Jake Melendrez technical profile visual">
-              <div class="hero-gridback-v5-2" aria-hidden="true"></div>
-              <div class="hero-halo-v5-2" aria-hidden="true"></div>
+            <g class="v6-orbits">
+              <circle class="v6-orbit v6-orbit-1" cx="825" cy="430" r="315"/>
+              <circle class="v6-orbit v6-orbit-2" cx="825" cy="430" r="274"/>
+              <circle class="v6-orbit v6-orbit-3" cx="825" cy="430" r="226"/>
+              <circle class="v6-orbit v6-orbit-4" cx="825" cy="430" r="172"/>
+              <path class="v6-arc-cyan" d="M570 608A315 315 0 0 1 701 147"/>
+              <path class="v6-arc-amber" d="M612 619A274 274 0 0 1 690 236"/>
+            </g>
 
-              <div class="hero-orbit-v5-2 orbit-a-v5-2" aria-hidden="true">
-                <span class="orbit-node-v5-2 orbit-node-a-v5-2"></span>
-              </div>
-              <div class="hero-orbit-v5-2 orbit-b-v5-2" aria-hidden="true">
-                <span class="orbit-node-v5-2 orbit-node-b-v5-2"></span>
-              </div>
-              <div class="hero-orbit-v5-2 orbit-c-v5-2" aria-hidden="true"></div>
+            <g class="v6-network">
+              <path d="M536 422L646 292L765 346L902 191L1061 306"/>
+              <path d="M606 206L734 373L915 227L1060 454"/>
+              <path d="M548 570L718 502L829 596L1011 529L1090 655"/>
+              <path d="M650 682L747 447L951 413L1067 250"/>
+              <path d="M624 322L793 171L1005 166"/>
+              <path d="M704 705L827 580L1006 628"/>
+            </g>
 
-              <span class="hero-callout-v5-2 callout-network-v5-2">Network Engineering</span>
-              <span class="hero-callout-v5-2 callout-systems-v5-2">Infrastructure</span>
-              <span class="hero-callout-v5-2 callout-delivery-v5-2">Project Delivery</span>
+            <g class="v6-nodes">
+              <circle class="v6-node c" cx="536" cy="422" r="5"/>
+              <circle class="v6-node c" cx="646" cy="292" r="4"/>
+              <circle class="v6-node a" cx="765" cy="346" r="5"/>
+              <circle class="v6-node c" cx="902" cy="191" r="4"/>
+              <circle class="v6-node c" cx="1061" cy="306" r="5"/>
+              <circle class="v6-node c" cx="734" cy="373" r="4"/>
+              <circle class="v6-node b" cx="915" cy="227" r="4"/>
+              <circle class="v6-node c" cx="1060" cy="454" r="5"/>
+              <circle class="v6-node c" cx="718" cy="502" r="4"/>
+              <circle class="v6-node a" cx="829" cy="596" r="4"/>
+              <circle class="v6-node c" cx="1011" cy="529" r="4"/>
+              <circle class="v6-node c" cx="827" cy="580" r="4"/>
+            </g>
 
-              <div class="hero-profile-v5-2">
-                <img
-                  id="profile-cutout"
-                  src="assets/images/jake-profile-full.webp"
-                  alt="Jake Melendrez"
-                  width="500"
-                  height="852"
-                  loading="eager"
-                  decoding="async">
-              </div>
+            <g class="v6-packets">
+              <circle class="v6-packet c" r="5">
+                <animateMotion dur="7s" repeatCount="indefinite" path="M536 422L646 292L765 346L902 191"/>
+              </circle>
+              <circle class="v6-packet a" r="4">
+                <animateMotion dur="5.8s" repeatCount="indefinite" path="M650 682L747 447L951 413L1067 250"/>
+              </circle>
+            </g>
 
-              <div class="hero-floor-v5-2" aria-hidden="true"></div>
-              <div class="hero-techline-v5-2 techline-left-v5-2" aria-hidden="true"></div>
-              <div class="hero-techline-v5-2 techline-right-v5-2" aria-hidden="true"></div>
-            </div>
+            <g class="v6-floor-rings">
+              <ellipse cx="845" cy="766" rx="310" ry="43"/>
+              <ellipse cx="845" cy="766" rx="245" ry="32"/>
+              <ellipse cx="845" cy="766" rx="172" ry="21"/>
+            </g>
+            <g class="v6-floor-lines">
+              <path d="M220 774H1250"/>
+              <path d="M250 716L1198 820"/>
+              <path d="M270 830L1204 706"/>
+              <path d="M560 610L480 885"/>
+              <path d="M720 606L688 892"/>
+              <path d="M920 605L982 892"/>
+              <path d="M1080 610L1246 878"/>
+            </g>
 
-            <div class="hero-actions-v5-2" data-reveal="up">
-              <a class="button button-primary magnetic" href="#work"><span>Explore Projects</span><b aria-hidden="true">↗</b></a>
+            <g class="v6-circuit-traces">
+              <path d="M420 170H548L582 138H674"/>
+              <path d="M1004 138H1125L1168 181H1250"/>
+              <path d="M368 642H500L548 690H640"/>
+              <path d="M994 610H1114L1172 560H1250"/>
+            </g>
+          </svg>
+
+          <div class="v6-copy" data-reveal="left">
+            <p class="v6-eyebrow"><span></span>Building connected systems<br>for a better tomorrow</p>
+            <h1 id="v6-title" class="v6-title">
+              <span class="v6-first">Jake</span>
+              <span class="v6-last">Melendrez</span>
+            </h1>
+            <p class="v6-roles">Network Engineer · Project Manager<br>Infrastructure Designer · Developer</p>
+            <p class="v6-summary">I design, deploy, and manage network infrastructure, business systems, and technology projects from planning through implementation and commissioning.</p>
+            <div class="v6-actions">
+              <a class="button button-primary magnetic" href="#work"><span>Explore Projects</span><b aria-hidden="true">→</b></a>
               <a class="button button-ghost magnetic" href="#expertise"><span>View Capabilities</span></a>
             </div>
-
-            <div class="hero-process-v5-2" data-reveal="up" aria-label="Project delivery process">
-              <div><b>01</b><span>Design</span><small>Plan with purpose</small></div>
-              <div><b>02</b><span>Deploy</span><small>Build for performance</small></div>
-              <div><b>03</b><span>Validate</span><small>Test for confidence</small></div>
-              <div><b>04</b><span>Handover</span><small>Deliver real impact</small></div>
+            <div class="v6-method" aria-label="Project delivery process">
+              <div><b>01</b><strong>Design</strong><small>Plan with purpose</small></div>
+              <div><b>02</b><strong>Deploy</strong><small>Build for performance</small></div>
+              <div><b>03</b><strong>Validate</strong><small>Test for confidence</small></div>
+              <div><b>04</b><strong>Handover</strong><small>Deliver real impact</small></div>
             </div>
           </div>
+
+          <div class="v6-portrait-zone" data-reveal="right">
+            <div class="v6-portrait-glow" aria-hidden="true"></div>
+            <div class="v6-portrait-rig">
+              <img class="v6-portrait" src="assets/images/jake-profile-full-v6.png" alt="Jake Melendrez" width="589" height="1004" loading="eager" decoding="async">
+            </div>
+
+            <span class="v6-tag tag-infra"><i></i>Infrastructure</span>
+            <span class="v6-tag tag-net"><i></i>Network<br>Engineering</span>
+            <span class="v6-tag tag-systems"><i></i>Systems</span>
+            <span class="v6-tag tag-delivery"><i></i>Project<br>Delivery</span>
+
+            <aside class="v6-mindset" aria-label="Professional mindset">
+              <div class="v6-minimap" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+              <strong>GLOBAL MINDSET</strong>
+              <small>REAL-WORLD IMPACT</small>
+            </aside>
+
+            <div class="v6-right-rail" aria-hidden="true">
+              <b></b>
+              <span>INFRASTRUCTURE</span>
+              <span>SYSTEMS</span>
+              <span>AUTOMATION</span>
+              <span>PEOPLE</span>
+            </div>
+          </div>
+
+          <div class="v6-scroll" aria-hidden="true"><i></i><span></span>SCROLL</div>
+          <div class="v6-version" aria-hidden="true">V6.0<br>PORTFOLIO</div>
+          <span class="v6-scan" aria-hidden="true"></span>
         </div>
       </div>
-
-      <div class="hero-scrollcue" aria-hidden="true"><span></span>SCROLL TO EXPLORE</div>
     </section>
 
     <section class="section about-section" id="about">
