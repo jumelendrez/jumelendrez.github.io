@@ -2803,3 +2803,284 @@
     padding-bottom:6px;
   }
 }
+
+
+/* =========================================================
+   V6.6 NATURAL CREDENTIAL DISPLAY
+   Minimal, photo-like framed documents. No fake seal artwork,
+   decorative certificate corners, or synthetic certificate graphics.
+   ========================================================= */
+
+.credential-photo-wall{
+  position:relative;
+  z-index:2;
+  margin-top:8px;
+  padding:44px 18px 0;
+  overflow:hidden;
+  border:1px solid rgba(46,154,180,.12);
+  border-radius:12px;
+  background:
+    radial-gradient(circle at 12% 0%,rgba(255,195,117,.08),transparent 17%),
+    radial-gradient(circle at 38% 0%,rgba(255,195,117,.07),transparent 17%),
+    radial-gradient(circle at 64% 0%,rgba(255,195,117,.07),transparent 17%),
+    radial-gradient(circle at 88% 0%,rgba(255,195,117,.08),transparent 17%),
+    linear-gradient(180deg,#101419 0%,#0b1015 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.015);
+}
+
+.credential-photo-wall::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.23;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.012),transparent 15%),
+    repeating-linear-gradient(0deg,transparent 0 2px,rgba(255,255,255,.008) 3px 4px);
+}
+
+.credential-photo-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:22px;
+  align-items:end;
+}
+
+.credential-photo-card{
+  min-width:0;
+}
+
+.realistic-frame{
+  position:relative;
+  aspect-ratio:1.42/1;
+  padding:9px;
+  border-radius:3px;
+  background:
+    linear-gradient(135deg,#2f2d2a 0%,#171614 35%,#080808 55%,#2c2925 100%);
+  box-shadow:
+    0 14px 28px rgba(0,0,0,.50),
+    inset 0 0 0 1px rgba(255,255,255,.035),
+    inset 0 0 0 4px rgba(0,0,0,.32);
+  transform:rotate(-.22deg);
+  transition:transform .24s ease,box-shadow .24s ease;
+}
+
+.credential-photo-card:nth-child(2) .realistic-frame{transform:rotate(.18deg)}
+.credential-photo-card:nth-child(3) .realistic-frame{transform:rotate(-.12deg)}
+.credential-photo-card:nth-child(4) .realistic-frame{transform:rotate(.20deg)}
+
+.credential-photo-card:hover .realistic-frame{
+  transform:translateY(-4px) rotate(0);
+  box-shadow:
+    0 20px 34px rgba(0,0,0,.56),
+    inset 0 0 0 1px rgba(255,255,255,.04);
+}
+
+.frame-mat{
+  position:relative;
+  width:100%;
+  height:100%;
+  padding:7px;
+  background:#d8d2c8;
+  box-shadow:inset 0 0 12px rgba(80,65,47,.10);
+}
+
+.sanitized-document{
+  position:relative;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  padding:18px 18px 14px;
+  border:1px solid rgba(105,93,75,.22);
+  background:
+    repeating-linear-gradient(0deg,rgba(80,62,39,.016) 0 1px,transparent 2px 5px),
+    #f7f2e8;
+  color:#2c2925;
+  box-shadow:inset 0 0 16px rgba(101,80,52,.05);
+}
+
+.sanitized-document::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:1px solid rgba(110,97,78,.13);
+  pointer-events:none;
+}
+
+.doc-brand{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  font-weight:900;
+  font-size:1.0rem;
+  letter-spacing:.06em;
+}
+
+.brand-dahua{color:#b81f2a}
+.brand-ubiquiti{color:#247db5}
+.brand-eset{color:#237d76}
+.brand-additional{color:#67584d;font-size:.78rem;letter-spacing:.08em}
+
+.doc-heading{
+  position:relative;
+  z-index:2;
+  margin-top:12px;
+  text-align:center;
+  color:#4b453e;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:.56rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.doc-name{
+  position:relative;
+  z-index:2;
+  margin-top:13px;
+  text-align:center;
+  color:#29251f;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1rem;
+  font-weight:700;
+}
+
+.doc-subject{
+  position:relative;
+  z-index:2;
+  margin-top:7px;
+  text-align:center;
+  color:#5e564d;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:.58rem;
+  line-height:1.4;
+}
+
+.doc-redacted-lines{
+  position:absolute;
+  z-index:2;
+  left:20%;
+  right:20%;
+  bottom:31%;
+  display:grid;
+  gap:7px;
+}
+
+.doc-redacted-lines span{
+  display:block;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#9c9488 16% 84%,transparent);
+  opacity:.38;
+}
+
+.doc-redacted-lines span:nth-child(2){
+  margin-inline:9%;
+}
+.doc-redacted-lines span:nth-child(3){
+  margin-inline:20%;
+}
+
+.doc-bottom{
+  position:absolute;
+  z-index:2;
+  left:16px;
+  right:16px;
+  bottom:9px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:#8a8278;
+  font-family:var(--mono);
+  font-size:.31rem;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+
+.doc-bottom b{
+  color:#5f574f;
+  font-weight:700;
+}
+
+.glass-glare{
+  position:absolute;
+  z-index:5;
+  inset:9px;
+  pointer-events:none;
+  opacity:.17;
+  background:
+    linear-gradient(124deg,rgba(255,255,255,.52),transparent 16% 63%,rgba(255,255,255,.18) 76%,transparent 88%);
+  mix-blend-mode:screen;
+}
+
+.credential-photo-meta{
+  min-height:105px;
+  padding:16px 7px 0;
+}
+
+.credential-photo-meta h3{
+  margin:10px 0 4px;
+  color:#eff7f9;
+  font-size:1rem;
+}
+
+.credential-photo-meta p{
+  margin:0;
+  color:#7e94a3;
+  font-size:.76rem;
+  line-height:1.5;
+}
+
+.credential-wood-shelf{
+  position:relative;
+  z-index:4;
+  height:20px;
+  margin:11px -18px 0;
+  background:
+    linear-gradient(180deg,#7a4c2c 0%,#55351f 43%,#302014 100%);
+  box-shadow:
+    0 -2px 8px rgba(255,191,103,.06),
+    0 14px 24px rgba(0,0,0,.35);
+}
+
+.credential-wood-shelf::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:2px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,210,151,.42),transparent);
+}
+
+.frame-dahua{box-shadow:0 14px 28px rgba(0,0,0,.50),inset 0 3px 0 rgba(173,35,45,.48)}
+.frame-ubiquiti{box-shadow:0 14px 28px rgba(0,0,0,.50),inset 0 3px 0 rgba(45,135,188,.46)}
+.frame-eset{box-shadow:0 14px 28px rgba(0,0,0,.50),inset 0 3px 0 rgba(42,134,123,.46)}
+.frame-additional{box-shadow:0 14px 28px rgba(0,0,0,.50),inset 0 3px 0 rgba(132,104,80,.42)}
+
+@media(max-width:1120px){
+  .credential-photo-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:680px){
+  .credential-photo-wall{
+    padding:34px 14px 0;
+  }
+
+  .credential-photo-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .realistic-frame{
+    width:min(100%,520px);
+    margin:0 auto;
+  }
+
+  .credential-photo-meta{
+    min-height:0;
+    padding-bottom:4px;
+  }
+}
