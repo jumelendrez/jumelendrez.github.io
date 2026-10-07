@@ -67,7 +67,7 @@
           ? [...entry.target.parentElement.querySelectorAll(':scope > [data-reveal]')]
           : [];
         const index = Math.max(0, group.indexOf(entry.target));
-        entry.target.style.transitionDelay = Math.min(index * 70, 280) + 'ms';
+        entry.target.style.transitionDelay = Math.min(index * 45, 135) + 'ms';
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
       });
@@ -93,14 +93,14 @@
     sections.forEach(section => sectionObserver.observe(section));
   }
 
-  if (!reduceMotion && cursorGlow && window.matchMedia('(pointer:fine)').matches) {
+  if (false && !reduceMotion && cursorGlow && window.matchMedia('(pointer:fine)').matches) {
     window.addEventListener('pointermove', event => {
       cursorGlow.style.left = event.clientX + 'px';
       cursorGlow.style.top = event.clientY + 'px';
     }, { passive: true });
   }
 
-  if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+  if (false && !reduceMotion && window.matchMedia('(pointer:fine)').matches) {
     document.querySelectorAll('.magnetic').forEach(element => {
       element.addEventListener('pointermove', event => {
         const rect = element.getBoundingClientRect();
