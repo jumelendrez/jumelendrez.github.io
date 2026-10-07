@@ -115,7 +115,7 @@
 
     document.querySelectorAll('.dossier').forEach(card => {
       const visual = card.querySelector('.dossier-visual');
-      if (!visual) return;
+      if (!visual || visual.classList.contains('project-visual-v6')) return;
 
       card.addEventListener('pointermove', event => {
         const rect = card.getBoundingClientRect();
