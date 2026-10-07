@@ -175,3 +175,46 @@
     if (profile) profile.style.marginLeft = '';
   });
 })();
+
+
+/* V5.3 vector-first hero interaction */
+(() => {
+  const stage = document.querySelector('.hero-svg-visual');
+  if (!stage) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer:fine)').matches;
+  if (reduceMotion || !finePointer) return;
+
+  const vector = stage.querySelector('.hero-vector-scene');
+  const profile = stage.querySelector('.hero-svg-profile-rig');
+  const glow = stage.querySelector('.hero-svg-profile-glow');
+
+  stage.addEventListener('pointermove', event => {
+    const rect = stage.getBoundingClientRect();
+    const nx = (event.clientX - rect.left) / rect.width - 0.5;
+    const ny = (event.clientY - rect.top) / rect.height - 0.5;
+
+    if (vector) {
+      vector.style.transform = 'translate3d(' + (nx * -7) + 'px,' + (ny * -6) + 'px,0)';
+    }
+
+    if (profile) {
+      profile.style.marginLeft = (nx * 4) + 'px';
+    }
+
+    if (glow) {
+      glow.style.marginLeft = (nx * 6) + 'px';
+      glow.style.marginTop = (ny * 5) + 'px';
+    }
+  });
+
+  stage.addEventListener('pointerleave', () => {
+    if (vector) vector.style.transform = '';
+    if (profile) profile.style.marginLeft = '';
+    if (glow) {
+      glow.style.marginLeft = '';
+      glow.style.marginTop = '';
+    }
+  });
+})();
