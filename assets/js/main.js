@@ -67,7 +67,7 @@
           ? [...entry.target.parentElement.querySelectorAll(':scope > [data-reveal]')]
           : [];
         const index = Math.max(0, group.indexOf(entry.target));
-        entry.target.style.transitionDelay = Math.min(index * 70, 280) + 'ms';
+        entry.target.style.transitionDelay = Math.min(index * 45, 135) + 'ms';
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
       });
@@ -93,14 +93,14 @@
     sections.forEach(section => sectionObserver.observe(section));
   }
 
-  if (!reduceMotion && cursorGlow && window.matchMedia('(pointer:fine)').matches) {
+  if (false && !reduceMotion && cursorGlow && window.matchMedia('(pointer:fine)').matches) {
     window.addEventListener('pointermove', event => {
       cursorGlow.style.left = event.clientX + 'px';
       cursorGlow.style.top = event.clientY + 'px';
     }, { passive: true });
   }
 
-  if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+  if (false && !reduceMotion && window.matchMedia('(pointer:fine)').matches) {
     document.querySelectorAll('.magnetic').forEach(element => {
       element.addEventListener('pointermove', event => {
         const rect = element.getBoundingClientRect();
@@ -115,7 +115,7 @@
 
     document.querySelectorAll('.dossier').forEach(card => {
       const visual = card.querySelector('.dossier-visual');
-      if (!visual) return;
+      if (!visual || visual.classList.contains('project-visual-v6')) return;
 
       card.addEventListener('pointermove', event => {
         const rect = card.getBoundingClientRect();
@@ -132,4 +132,46 @@
 
   const year = document.getElementById('current-year');
   if (year) year.textContent = String(new Date().getFullYear());
+})();
+
+
+/* V5.2 integrated hero interaction */
+(() => {
+  const stage = document.querySelector('.hero-visual-v5-2');
+  const finePointer = window.matchMedia('(pointer:fine)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!stage || !finePointer || reduceMotion) return;
+
+  const grid = stage.querySelector('.hero-gridback-v5-2');
+  const halo = stage.querySelector('.hero-halo-v5-2');
+  const profile = stage.querySelector('.hero-profile-v5-2');
+
+  stage.addEventListener('pointermove', event => {
+    const rect = stage.getBoundingClientRect();
+    const nx = (event.clientX - rect.left) / rect.width - 0.5;
+    const ny = (event.clientY - rect.top) / rect.height - 0.5;
+
+    if (grid) {
+      grid.style.transform = `translate3d(${nx * -6}px,${ny * -5}px,0)`;
+    }
+
+    if (halo) {
+      halo.style.marginLeft = `${nx * 5}px`;
+      halo.style.marginTop = `${ny * 4}px`;
+    }
+
+    if (profile) {
+      profile.style.marginLeft = `${nx * 3}px`;
+    }
+  });
+
+  stage.addEventListener('pointerleave', () => {
+    if (grid) grid.style.transform = '';
+    if (halo) {
+      halo.style.marginLeft = '';
+      halo.style.marginTop = '';
+    }
+    if (profile) profile.style.marginLeft = '';
+  });
 })();

@@ -11,9 +11,12 @@
   <meta property="og:url" content="https://jumelendrez.github.io/">
   <title>Jake Melendrez | Network Engineer, Project Manager & Developer</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/v6.css">
+  <link rel="stylesheet" href="assets/css/v6-hybrid.css">
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/v6.js" defer></script>
 </head>
-<body>
+<body class="v6-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
@@ -21,9 +24,9 @@
   <div class="ambient ambient-two" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
 
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="container nav-shell">
-      <a class="brand" href="#top" aria-label="Jake Melendrez home">
+      <a class="brand" href="#home" aria-label="Jake Melendrez home">
         <span class="brand-mark" aria-hidden="true">JM</span>
         <span class="brand-copy">
           <strong>Jake Melendrez</strong>
@@ -35,123 +38,245 @@
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <nav class="site-nav v6-nav" id="site-nav" aria-label="Primary navigation">
+        <a class="is-active" href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#work">Work</a>
+        <a href="#work">Projects</a>
+        <a href="#expertise">Capabilities</a>
         <a href="#experience">Experience</a>
-        <a href="#certifications">Credentials</a>
-        <a class="nav-cta" href="#contact">Contact</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta v6-connect" href="#contact">Let's Connect <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy" data-reveal="left">
-          <div class="hero-status">
-            <span class="status-pulse"></span>
-            <span>Network Engineering · Infrastructure · Project Delivery</span>
+    <section class="v6-hero" id="home" aria-labelledby="v6-title">
+      <div class="container v6-wrap">
+        <div class="v6-shell">
+          <div class="v6-atmosphere" aria-hidden="true">
+            <span class="v6-pillar p1"></span><span class="v6-pillar p2"></span><span class="v6-pillar p3"></span>
+            <span class="v6-pillar p4"></span><span class="v6-pillar p5"></span><span class="v6-pillar p6"></span>
+            <span class="v6-bokeh b1"></span><span class="v6-bokeh b2"></span><span class="v6-bokeh b3"></span>
+            <span class="v6-bokeh b4"></span><span class="v6-bokeh b5"></span><span class="v6-bokeh b6"></span>
           </div>
+          <svg class="v6-frame" viewBox="0 0 1320 900" preserveAspectRatio="none" aria-hidden="true">
+            <path class="v6-frame-main" d="M44 18H1276L1302 44V856L1276 882H44L18 856V44Z"/>
+            <path class="v6-frame-top" d="M164 18H1094"/>
+            <path class="v6-frame-bottom" d="M194 882H1122"/>
+            <path class="v6-frame-notch" d="M18 284H38M18 664H38M1282 250H1302M1282 640H1302"/>
+            <path class="v6-frame-amber" d="M18 420V468M1302 390V430"/>
+          </svg>
 
-          <p class="hero-overline">SYSTEMS THAT WORK IN THE REAL WORLD</p>
-          <h1>
-            <span class="hero-first">Jake</span>
-            <span class="hero-last" data-text="Melendrez">Melendrez</span>
-          </h1>
+          <svg class="v6-scene" viewBox="0 0 1320 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <pattern id="v6Grid" width="44" height="44" patternUnits="userSpaceOnUse">
+                <path d="M44 0H0V44" fill="none" stroke="#2b8aa7" stroke-opacity=".075" stroke-width="1"/>
+              </pattern>
+              <pattern id="v6Dots" width="18" height="18" patternUnits="userSpaceOnUse">
+                <circle cx="1.6" cy="1.6" r="1.1" fill="#20dbef" fill-opacity=".36"/>
+              </pattern>
+              <radialGradient id="v6Aura" cx="50%" cy="45%" r="56%">
+                <stop offset="0%" stop-color="#16dff2" stop-opacity=".16"/>
+                <stop offset="40%" stop-color="#16dff2" stop-opacity=".06"/>
+                <stop offset="100%" stop-color="#16dff2" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="v6Floor" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#0de4f4" stop-opacity="0"/>
+                <stop offset="38%" stop-color="#0de4f4" stop-opacity=".62"/>
+                <stop offset="66%" stop-color="#ffb548" stop-opacity=".42"/>
+                <stop offset="100%" stop-color="#0de4f4" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="v6GlowCyan" x="-80%" y="-80%" width="260%" height="260%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="v6GlowAmber" x="-80%" y="-80%" width="260%" height="260%">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <clipPath id="v6GlobeClip">
+                <circle cx="825" cy="430" r="300"/>
+              </clipPath>
+            </defs>
 
-          <p class="hero-roles">
-            Network Engineer <i></i>
-            Project Manager <i></i>
-            Infrastructure Designer <i></i>
-            Developer
-          </p>
+            <rect x="0" y="0" width="1320" height="900" fill="url(#v6Grid)" opacity=".42"/>
+            <ellipse cx="825" cy="430" rx="380" ry="360" fill="url(#v6Aura)"/>
 
-          <p class="hero-summary">I design, deploy, and manage network infrastructure, business systems, and technology projects from planning through implementation and commissioning.</p>
+            <g class="v6-beams">
+              <path d="M584 0L642 0L544 900L472 900Z"/>
+              <path d="M744 0L790 0L706 900L646 900Z"/>
+              <path d="M924 0L962 0L886 900L836 900Z"/>
+            </g>
 
-          <div class="hero-actions">
-            <a class="button button-primary magnetic" href="#work"><span>Explore Projects</span><b aria-hidden="true">↗</b></a>
-            <a class="button button-ghost magnetic" href="#expertise"><span>View Capabilities</span></a>
-          </div>
+            <g clip-path="url(#v6GlobeClip)" class="v6-globe-dots">
+              <rect x="500" y="100" width="650" height="650" fill="url(#v6Dots)"/>
+              <path d="M532 242C646 130 795 102 942 143C1075 181 1149 280 1152 407C1155 538 1077 649 942 702C785 764 623 721 528 606C449 510 449 335 532 242Z"/>
+              <path d="M560 184C695 236 788 271 888 365C982 454 1030 545 1084 667"/>
+              <path d="M542 590C661 530 776 476 903 428C1000 391 1082 313 1140 242"/>
+              <path d="M618 124C652 248 687 361 744 468C812 595 891 673 1011 730"/>
+            </g>
 
-          <div class="hero-method">
-            <span><b>01</b> Design</span>
-            <span><b>02</b> Deploy</span>
-            <span><b>03</b> Validate</span>
-            <span><b>04</b> Handover</span>
-          </div>
-        </div>
+            <g class="v6-orbits">
+              <circle class="v6-orbit v6-orbit-1" cx="825" cy="430" r="315"/>
+              <circle class="v6-orbit v6-orbit-2" cx="825" cy="430" r="274"/>
+              <circle class="v6-orbit v6-orbit-3" cx="825" cy="430" r="226"/>
+              <circle class="v6-orbit v6-orbit-4" cx="825" cy="430" r="172"/>
+              <path class="v6-arc-cyan" d="M570 608A315 315 0 0 1 701 147"/>
+              <path class="v6-arc-amber" d="M612 619A274 274 0 0 1 690 236"/>
+            </g>
 
-        <div class="hero-console" data-reveal="right">
-          <div class="console-head">
-            <div>
-              <span class="console-label">INFRASTRUCTURE MAP</span>
-              <strong>Operational View</strong>
+            <g class="v6-network">
+              <path d="M536 422L646 292L765 346L902 191L1061 306"/>
+              <path d="M606 206L734 373L915 227L1060 454"/>
+              <path d="M548 570L718 502L829 596L1011 529L1090 655"/>
+              <path d="M650 682L747 447L951 413L1067 250"/>
+              <path d="M624 322L793 171L1005 166"/>
+              <path d="M704 705L827 580L1006 628"/>
+            </g>
+
+            <g class="v6-nodes">
+              <circle class="v6-node c" cx="536" cy="422" r="5"/>
+              <circle class="v6-node c" cx="646" cy="292" r="4"/>
+              <circle class="v6-node a" cx="765" cy="346" r="5"/>
+              <circle class="v6-node c" cx="902" cy="191" r="4"/>
+              <circle class="v6-node c" cx="1061" cy="306" r="5"/>
+              <circle class="v6-node c" cx="734" cy="373" r="4"/>
+              <circle class="v6-node b" cx="915" cy="227" r="4"/>
+              <circle class="v6-node c" cx="1060" cy="454" r="5"/>
+              <circle class="v6-node c" cx="718" cy="502" r="4"/>
+              <circle class="v6-node a" cx="829" cy="596" r="4"/>
+              <circle class="v6-node c" cx="1011" cy="529" r="4"/>
+              <circle class="v6-node c" cx="827" cy="580" r="4"/>
+            </g>
+
+            <g class="v6-packets">
+              <circle class="v6-packet c" r="5">
+                <animateMotion dur="7s" repeatCount="indefinite" path="M536 422L646 292L765 346L902 191"/>
+              </circle>
+              <circle class="v6-packet a" r="4">
+                <animateMotion dur="5.8s" repeatCount="indefinite" path="M650 682L747 447L951 413L1067 250"/>
+              </circle>
+            </g>
+
+            <g class="v6-floor-rings">
+              <ellipse cx="845" cy="766" rx="310" ry="43"/>
+              <ellipse cx="845" cy="766" rx="245" ry="32"/>
+              <ellipse cx="845" cy="766" rx="172" ry="21"/>
+            </g>
+            <g class="v6-floor-lines">
+              <path d="M220 774H1250"/>
+              <path d="M250 716L1198 820"/>
+              <path d="M270 830L1204 706"/>
+              <path d="M560 610L480 885"/>
+              <path d="M720 606L688 892"/>
+              <path d="M920 605L982 892"/>
+              <path d="M1080 610L1246 878"/>
+            </g>
+
+            <g class="v6-circuit-traces">
+              <path d="M420 170H548L582 138H674"/>
+              <path d="M1004 138H1125L1168 181H1250"/>
+              <path d="M368 642H500L548 690H640"/>
+              <path d="M994 610H1114L1172 560H1250"/>
+            </g>
+          </svg>
+
+          <div class="v6-copy" data-reveal="left">
+            
+            <h1 id="v6-title" class="v6-title">
+              <span class="v6-first">Jake</span>
+              <span class="v6-last">Melendrez</span>
+            </h1>
+            <p class="v6-roles">Network Engineer · Project Manager<br>Infrastructure Designer · Developer</p>
+            <p class="v6-summary">I design and deliver practical network infrastructure, business systems, and technology solutions—from planning and implementation to testing and handover.</p>
+            <div class="v6-actions">
+              <a class="button button-primary magnetic" href="#work"><span>Explore Projects</span><b aria-hidden="true">→</b></a>
+              <a class="button button-ghost magnetic" href="#expertise"><span>View Capabilities</span></a>
             </div>
-            <div class="console-live"><i></i> ONLINE</div>
+            <div class="v6-value-strip" aria-label="Professional focus">
+              <div class="v6-value"><span class="v6-value-icon" aria-hidden="true">◎</span><p><strong>Network<br>Solutions</strong></p></div>
+              <div class="v6-value"><span class="v6-value-icon v6-bars" aria-hidden="true">▥</span><p><strong>Infrastructure<br>Delivery</strong></p></div>
+              <div class="v6-value"><span class="v6-value-icon v6-bolt" aria-hidden="true">ϟ</span><p><strong>Technical<br>Problem-Solving</strong></p></div>
+            </div>
           </div>
 
-          <div class="console-stage">
-            <svg class="topology" viewBox="0 0 600 520" role="img" aria-label="Animated abstract network topology">
-              <defs>
-                <linearGradient id="routeGradient" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#4ef1d0" stop-opacity=".15"/>
-                  <stop offset="50%" stop-color="#4ef1d0" stop-opacity=".85"/>
-                  <stop offset="100%" stop-color="#70a7ff" stop-opacity=".15"/>
-                </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="4" result="blur"/>
-                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-              </defs>
+          <div class="v6-portrait-zone" data-reveal="right">
+            <div class="v6-hud-panel" aria-hidden="true">
+              <svg class="v6-hud-frame" viewBox="0 0 760 650" preserveAspectRatio="none">
+                <path d="M28 1H676L759 84V566L676 649H28L1 622V28Z"/>
+                <path d="M28 1H196M564 1H676M759 84V206M759 430V566M1 468V622"/>
+                <path class="hud-amber" d="M1 314V350M759 292V330"/>
+              </svg>
+              <div class="v6-hud-brand">
+                <span>JM</span><p><strong>Jake Melendrez</strong><small>Infrastructure / Systems</small></p>
+              </div>
+              <div class="v6-hud-message"><i></i><p>BUILDING<br>CONNECTED<br>SYSTEMS<br>FOR A BETTER<br>TOMORROW</p></div>
+              <div class="v6-hud-capabilities">
+                <div><span>⌘</span><b>Network<br>Engineering</b></div>
+                <div><span>⌁</span><b>Wireless<br>Infrastructure</b></div>
+                <div><span>▤</span><b>Infrastructure<br>&amp; Systems</b></div>
+                <div><span>▣</span><b>Project<br>Management</b></div>
+                <div><span>&lt;/&gt;</span><b>System<br>Development</b></div>
+              </div>
+              <div class="v6-plan-stack"><span></span><p>PLAN<br>DESIGN<br>DEPLOY<br>OPTIMIZE</p></div>
+            </div>
+            <div class="v6-portrait-glow" aria-hidden="true"></div>
+            <div class="v6-portrait-rig">
+              <img class="v6-portrait" src="assets/images/jake-profile-full-v6.png" alt="Jake Melendrez" width="589" height="1004" loading="eager" decoding="async">
+            </div>
 
-              <path id="route-a" class="route route-a" d="M104 126 C210 164 214 234 300 260 C386 286 424 150 516 136"/>
-              <path id="route-b" class="route route-b" d="M92 398 C176 330 228 300 300 260 C372 220 422 330 516 390"/>
-              <path id="route-c" class="route route-c" d="M104 126 C166 240 204 332 92 398"/>
-              <path id="route-d" class="route route-d" d="M516 136 C464 232 440 306 516 390"/>
+            <span class="v6-tag tag-infra"><i></i>Infrastructure</span>
+            <span class="v6-tag tag-net"><i></i>Network<br>Engineering</span>
+            <span class="v6-tag tag-systems"><i></i>Systems</span>
+            <span class="v6-tag tag-delivery"><i></i>Project<br>Delivery</span>
 
-              <g class="topology-node node-edge" transform="translate(104 126)">
-                <circle r="38"/><circle class="node-ring" r="48"/><text y="4">EDGE</text>
-              </g>
-              <g class="topology-node node-core" transform="translate(300 260)">
-                <circle r="54"/><circle class="node-ring" r="67"/><text y="4">CORE</text>
-              </g>
-              <g class="topology-node node-wifi" transform="translate(516 136)">
-                <circle r="38"/><circle class="node-ring" r="48"/><text y="4">WIFI</text>
-              </g>
-              <g class="topology-node node-data" transform="translate(92 398)">
-                <circle r="38"/><circle class="node-ring" r="48"/><text y="4">DATA</text>
-              </g>
-              <g class="topology-node node-sec" transform="translate(516 390)">
-                <circle r="38"/><circle class="node-ring" r="48"/><text y="4">SEC</text>
-              </g>
+            <aside class="v6-mindset" aria-label="Professional mindset">
+              <div class="v6-minimap" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+              <strong>GLOBAL MINDSET</strong>
+              <small>REAL-WORLD IMPACT</small>
+            </aside>
 
-              <circle class="packet packet-a" r="5" filter="url(#glow)">
-                <animateMotion dur="4.8s" repeatCount="indefinite"><mpath href="#route-a"/></animateMotion>
-              </circle>
-              <circle class="packet packet-b" r="4" filter="url(#glow)">
-                <animateMotion dur="5.8s" begin="1.1s" repeatCount="indefinite"><mpath href="#route-b"/></animateMotion>
-              </circle>
-              <circle class="packet packet-c" r="3.5" filter="url(#glow)">
-                <animateMotion dur="6.2s" begin=".6s" repeatCount="indefinite"><mpath href="#route-c"/></animateMotion>
-              </circle>
-            </svg>
-
-            <div class="console-scan" aria-hidden="true"></div>
-            <div class="console-corner corner-tl" aria-hidden="true"></div>
-            <div class="console-corner corner-br" aria-hidden="true"></div>
+            <div class="v6-right-rail" aria-hidden="true">
+              <b></b>
+              <span>INFRASTRUCTURE</span>
+              <span>SYSTEMS</span>
+              <span>AUTOMATION</span>
+              <span>PEOPLE</span>
+            </div>
           </div>
 
-          <div class="console-footer">
-            <div><span>DESIGN</span><strong>Architecture</strong></div>
-            <div><span>BUILD</span><strong>Implementation</strong></div>
-            <div><span>VERIFY</span><strong>Commissioning</strong></div>
-          </div>
+          <div class="v6-scroll" aria-hidden="true"><i></i><span></span>SCROLL</div>
+          <div class="v6-version" aria-hidden="true">V6.0<br>PORTFOLIO</div>
+          <span class="v6-scan" aria-hidden="true"></span>
         </div>
       </div>
+    </section>
 
-      <div class="hero-scrollcue" aria-hidden="true"><span></span>SCROLL TO EXPLORE</div>
+    <section class="v6-featured-peek" aria-labelledby="v6-featured-title">
+      <div class="container">
+        <div class="v6-featured-head">
+          <div>
+            <p class="section-kicker">FEATURED PROJECTS</p>
+            <h2 id="v6-featured-title">Real Solutions.<br>Measurable Impact.</h2>
+          </div>
+          <p>A selection of infrastructure, systems, and development projects showcasing practical delivery, reliability, and scalable technical solutions.</p>
+          <a class="v6-featured-all" href="#work">View All Projects <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="v6-featured-cards">
+          <a href="projects/enterprise-wifi-bgc/" class="v6-feature-card">
+            <span>01</span><strong>Enterprise Network Infrastructure</strong><small>BGC, Taguig City</small><b aria-hidden="true">→</b>
+          </a>
+          <a href="projects/warehouse-network-tarlac/" class="v6-feature-card">
+            <span>02</span><strong>Warehouse Network &amp; Connectivity</strong><small>Tarlac City</small><b aria-hidden="true">→</b>
+          </a>
+          <a href="#work" class="v6-feature-card">
+            <span>03</span><strong>Systems Development &amp; Automation</strong><small>Private Business Systems</small><b aria-hidden="true">→</b>
+          </a>
+        </div>
+      </div>
     </section>
 
     <section class="section about-section" id="about">
@@ -163,7 +288,7 @@
 
         <div class="about-main" data-reveal="up">
           <p class="section-kicker">MULTI-DISCIPLINE TECHNICAL DELIVERY</p>
-          <h2>I work where <em>infrastructure</em>, <em>operations</em>, and <em>systems</em> meet.</h2>
+          <h2>Bridging <em>infrastructure</em>, <em>operations</em>, and <em>innovation</em>.</h2>
         </div>
 
         <div class="about-copy" data-reveal="right">
@@ -242,12 +367,73 @@
         <div class="dossier-list">
           <article class="dossier dossier-featured" data-reveal="up">
             <div class="dossier-index">PROJECT / 01</div>
-            <div class="dossier-visual visual-bgc">
+            <div class="dossier-visual visual-bgc project-visual-v6">
               <div class="blueprint-grid"></div>
-              <div class="radar-ring radar-one"></div>
-              <div class="radar-ring radar-two"></div>
-              <div class="radar-sweep"></div>
-              <div class="visual-core">BGC</div>
+              <svg class="wireless-motion" viewBox="0 0 560 520" aria-hidden="true">
+                <defs>
+                  <filter id="wirelessGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="3.2" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+
+                <g class="wireless-links">
+                  <path id="wifiP1" d="M280 262 L122 132"/>
+                  <path id="wifiP2" d="M280 262 L438 128"/>
+                  <path id="wifiP3" d="M280 262 L112 390"/>
+                  <path id="wifiP4" d="M280 262 L448 388"/>
+                  <path id="wifiP5" d="M280 262 L280 82"/>
+                </g>
+
+                <g class="wireless-core">
+                  <rect x="252" y="234" width="56" height="56" rx="10"/>
+                  <circle cx="266" cy="249" r="3.2"/>
+                  <circle cx="280" cy="249" r="3.2"/>
+                  <circle cx="294" cy="249" r="3.2"/>
+                  <circle cx="266" cy="276" r="3.2"/>
+                  <circle cx="280" cy="276" r="3.2"/>
+                  <circle cx="294" cy="276" r="3.2"/>
+                </g>
+
+                <g class="wireless-ap ap1">
+                  <circle class="coverage outer" cx="122" cy="132" r="48"/>
+                  <circle class="coverage inner" cx="122" cy="132" r="31"/>
+                  <circle class="ap-dot" cx="122" cy="132" r="7"/>
+                </g>
+                <g class="wireless-ap ap2">
+                  <circle class="coverage outer" cx="438" cy="128" r="48"/>
+                  <circle class="coverage inner" cx="438" cy="128" r="31"/>
+                  <circle class="ap-dot" cx="438" cy="128" r="7"/>
+                </g>
+                <g class="wireless-ap ap3">
+                  <circle class="coverage outer" cx="112" cy="390" r="48"/>
+                  <circle class="coverage inner" cx="112" cy="390" r="31"/>
+                  <circle class="ap-dot" cx="112" cy="390" r="7"/>
+                </g>
+                <g class="wireless-ap ap4">
+                  <circle class="coverage outer" cx="448" cy="388" r="48"/>
+                  <circle class="coverage inner" cx="448" cy="388" r="31"/>
+                  <circle class="ap-dot" cx="448" cy="388" r="7"/>
+                </g>
+                <g class="wireless-ap ap5">
+                  <circle class="coverage outer" cx="280" cy="82" r="42"/>
+                  <circle class="coverage inner" cx="280" cy="82" r="27"/>
+                  <circle class="ap-dot" cx="280" cy="82" r="7"/>
+                </g>
+
+                <circle class="wifi-packet" r="4.5">
+                  <animateMotion dur="7.2s" repeatCount="indefinite" path="M280 262 L122 132"/>
+                </circle>
+                <circle class="wifi-packet alt" r="4">
+                  <animateMotion dur="8.6s" begin="1.6s" repeatCount="indefinite" path="M280 262 L448 388"/>
+                </circle>
+                <circle class="wifi-packet soft" r="3.8">
+                  <animateMotion dur="9.2s" begin="3s" repeatCount="indefinite" path="M280 262 L280 82"/>
+                </circle>
+
+                <circle class="coverage-sweep" cx="280" cy="262" r="174"/>
+              </svg>
+
               <span class="visual-caption">ENTERPRISE NETWORK / WIRELESS</span>
             </div>
             <div class="dossier-copy">
@@ -266,15 +452,67 @@
 
           <article class="dossier dossier-reverse" data-reveal="up">
             <div class="dossier-index">PROJECT / 02</div>
-            <div class="dossier-visual visual-tarlac">
+            <div class="dossier-visual visual-tarlac project-visual-v6">
               <div class="warehouse-lines"></div>
-              <div class="warehouse-node node-a"></div>
-              <div class="warehouse-node node-b"></div>
-              <div class="warehouse-node node-c"></div>
-              <div class="warehouse-path path-a"></div>
-              <div class="warehouse-path path-b"></div>
+              <div class="tarlac-floor" aria-hidden="true"></div>
+              <div class="tarlac-racks" aria-hidden="true">
+                <span class="rack rack-a"><i></i><i></i><i></i></span>
+                <span class="rack rack-b"><i></i><i></i><i></i></span>
+                <span class="rack rack-c"><i></i><i></i><i></i></span>
+                <span class="rack rack-d"><i></i><i></i><i></i></span>
+              </div>
+
+              <svg class="warehouse-motion" viewBox="0 0 560 520" aria-hidden="true">
+                <defs>
+                  <filter id="warehouseGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="3.1" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+
+                <g class="warehouse-backbone">
+                  <path id="warehouseMain" d="M88 258 L202 258 L278 196 L360 258 L474 258"/>
+                  <path d="M202 258 L152 372"/>
+                  <path d="M360 258 L410 372"/>
+                </g>
+
+                <g class="warehouse-switch">
+                  <rect x="62" y="232" width="52" height="52" rx="8"/>
+                  <circle cx="76" cy="247" r="3"/>
+                  <circle cx="88" cy="247" r="3"/>
+                  <circle cx="100" cy="247" r="3"/>
+                  <circle cx="76" cy="269" r="3"/>
+                  <circle cx="88" cy="269" r="3"/>
+                  <circle cx="100" cy="269" r="3"/>
+                </g>
+
+                <g class="warehouse-endpoint e1">
+                  <circle class="endpoint-ring" cx="278" cy="196" r="28"/>
+                  <circle class="endpoint-dot" cx="278" cy="196" r="7"/>
+                </g>
+                <g class="warehouse-endpoint e2">
+                  <circle class="endpoint-ring" cx="474" cy="258" r="28"/>
+                  <circle class="endpoint-dot" cx="474" cy="258" r="7"/>
+                </g>
+                <g class="warehouse-endpoint e3">
+                  <circle class="endpoint-ring" cx="152" cy="372" r="28"/>
+                  <circle class="endpoint-dot" cx="152" cy="372" r="7"/>
+                </g>
+                <g class="warehouse-endpoint e4">
+                  <circle class="endpoint-ring" cx="410" cy="372" r="28"/>
+                  <circle class="endpoint-dot" cx="410" cy="372" r="7"/>
+                </g>
+
+                <circle class="warehouse-packet" r="4.5">
+                  <animateMotion dur="7s" repeatCount="indefinite" path="M88 258 L202 258 L278 196 L360 258 L474 258"/>
+                </circle>
+                <circle class="warehouse-packet alt" r="4">
+                  <animateMotion dur="8.4s" begin="2.1s" repeatCount="indefinite" path="M88 258 L202 258 L152 372"/>
+                </circle>
+              </svg>
+
+              <div class="warehouse-scan" aria-hidden="true"></div>
               <span class="visual-caption">WAREHOUSE / SITE CONNECTIVITY</span>
-              <div class="visual-core visual-core-small">TARLAC</div>
             </div>
             <div class="dossier-copy">
               <div class="project-meta"><span>NETWORK / CONNECTIVITY</span><span>TARLAC CITY</span></div>
@@ -362,21 +600,109 @@
       </div>
     </section>
 
-    <section class="section credential-section" id="certifications">
-      <div class="container credential-grid">
-        <div data-reveal="left">
-          <p class="section-kicker">05 / CERTIFICATIONS & TRAINING</p>
-          <h2>Credential vault.</h2>
-          <p class="credential-intro">Only verified credentials will be published. No placeholder certifications or invented claims.</p>
+    <section class="section credential-section v6-credentials actual-credentials" id="certifications">
+      <div class="container">
+        <div class="v6-credential-head" data-reveal="up">
+          <div>
+            <p class="section-kicker">05 / CERTIFICATIONS &amp; TRAINING</p>
+            <h2>Actual certifications &amp; training records.</h2>
+          </div>
+          <p>Selected credentials from vendor certification and technical training. The gallery now uses the actual certificates you provided instead of generated certificate templates.</p>
         </div>
 
-        <div class="credential-vault" data-reveal="right">
-          <div class="vault-top"><span>VERIFICATION STATUS</span><b><i></i> REVIEW IN PROGRESS</b></div>
-          <div class="vault-body">
-            <span class="vault-icon">✓</span>
-            <div><h3>Verified records only</h3><p>Certification and training details will appear here after document review.</p></div>
+        <div class="actual-credential-grid" data-reveal="up">
+          <article class="actual-credential-card">
+            <a class="actual-certificate-image" href="assets/images/credentials/dahua-dolynk.webp" target="_blank" rel="noopener" aria-label="Open Dahua DoLynk certificate">
+              <img src="assets/images/credentials/dahua-dolynk.webp" alt="Dahua DHCA DoLynk certificate for Jake Melendrez" loading="lazy" decoding="async">
+              <span class="certificate-view">View certificate ↗</span>
+            </a>
+            <div class="actual-credential-meta">
+              <span class="credential-type">Certification</span>
+              <h3>Dahua DHCA – DoLynk</h3>
+              <p>Cloud Management System Certified Engineer</p>
+            </div>
+          </article>
+
+          <article class="actual-credential-card">
+            <a class="actual-certificate-image" href="assets/images/credentials/dahua-ipvss.webp" target="_blank" rel="noopener" aria-label="Open Dahua IPVSS certificate">
+              <img src="assets/images/credentials/dahua-ipvss.webp" alt="Dahua DHCA IPVSS certificate for Jake Melendrez" loading="lazy" decoding="async">
+              <span class="certificate-view">View certificate ↗</span>
+            </a>
+            <div class="actual-credential-meta">
+              <span class="credential-type">Certification</span>
+              <h3>Dahua DHCA – IPVSS</h3>
+              <p>Video Surveillance System Certified Engineer</p>
+            </div>
+          </article>
+
+          <article class="actual-credential-card">
+            <a class="actual-certificate-image portrait-certificate" href="assets/images/credentials/ubiquiti-ufsp-academy.webp" target="_blank" rel="noopener" aria-label="Open Ubiquiti Academy certificate">
+              <img src="assets/images/credentials/ubiquiti-ufsp-academy.webp" alt="Ubiquiti Academy UniFi Full Stack Professional certificate for Jake Melendrez" loading="lazy" decoding="async">
+              <span class="certificate-view">View certificate ↗</span>
+            </a>
+            <div class="actual-credential-meta">
+              <span class="credential-type">Certification</span>
+              <h3>Ubiquiti Academy – UFSP</h3>
+              <p>UniFi Full Stack Professional</p>
+            </div>
+          </article>
+
+          <article class="actual-credential-card">
+            <a class="actual-certificate-image" href="assets/images/credentials/ubiquiti-ufsp-participation.webp" target="_blank" rel="noopener" aria-label="Open Ubiquiti UFSP participation certificate">
+              <img src="assets/images/credentials/ubiquiti-ufsp-participation.webp" alt="Ubiquiti UFSP certificate of participation for Jake Melendrez" loading="lazy" decoding="async">
+              <span class="certificate-view">View certificate ↗</span>
+            </a>
+            <div class="actual-credential-meta">
+              <span class="credential-type">Training / Participation</span>
+              <h3>Ubiquiti UFSP Training</h3>
+              <p>UniFi Full Stack Professional technical training</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="supplemental-training" data-reveal="up">
+          <div class="supplemental-training-head">
+            <div>
+              <span class="section-kicker">ADDITIONAL TECHNICAL TRAINING</span>
+              <h3>Training records beyond the certificate gallery.</h3>
+            </div>
+            <p>These records reflect technical training you completed or attended, but no supporting certificate is currently available for publication.</p>
           </div>
-          <div class="vault-grid" aria-hidden="true"></div>
+
+          <div class="supplemental-training-grid">
+            <article class="training-record training-record-fortinet">
+              <div class="training-record-top">
+                <div class="training-brand training-brand-fortinet">FORTINET</div>
+                <span class="training-record-type">Technical Training</span>
+              </div>
+              <h4>Fortinet Firewall Training</h4>
+              <p class="training-record-focus">Firewall / Network Security</p>
+              <div class="training-record-status">
+                <span>Record status</span>
+                <strong>Training attended</strong>
+              </div>
+              <p class="training-record-note">Supporting certificate not currently available.</p>
+            </article>
+
+            <article class="training-record training-record-aruba">
+              <div class="training-record-top">
+                <div class="training-brand training-brand-aruba">ARUBA</div>
+                <span class="training-record-type">Technical Training</span>
+              </div>
+              <h4>Aruba Networking Training</h4>
+              <p class="training-record-focus">Networking / Infrastructure</p>
+              <div class="training-record-status">
+                <span>Record status</span>
+                <strong>Training attended</strong>
+              </div>
+              <p class="training-record-note">Supporting certificate not currently available.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="actual-credential-note" data-reveal="up">
+          <span aria-hidden="true">✓</span>
+          <p><strong>Actual records:</strong> these gallery images are derived from the certificates you supplied. We can still redact certificate numbers or signatures before production if you prefer.</p>
         </div>
       </div>
     </section>
