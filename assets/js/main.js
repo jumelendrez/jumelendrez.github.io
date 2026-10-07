@@ -175,3 +175,56 @@
     if (profile) profile.style.marginLeft = '';
   });
 })();
+
+
+/* V5.2 professional coded hero interaction */
+(() => {
+  const stage = document.querySelector('.hero-pro-visual');
+  if (!stage) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer:fine)').matches;
+  if (reduceMotion || !finePointer) return;
+
+  const network = stage.querySelector('.hero-pro-network');
+  const profile = stage.querySelector('.hero-pro-profile-rig');
+  const glow = stage.querySelector('.hero-pro-profile-glow');
+  const grid = stage.querySelector('.hero-pro-gridback');
+
+  stage.addEventListener('pointermove', event => {
+    const rect = stage.getBoundingClientRect();
+    const nx = (event.clientX - rect.left) / rect.width - 0.5;
+    const ny = (event.clientY - rect.top) / rect.height - 0.5;
+
+    if (network) {
+      network.style.marginLeft = (nx * -7) + 'px';
+      network.style.marginTop = (ny * -6) + 'px';
+    }
+
+    if (profile) {
+      profile.style.marginLeft = (nx * 4) + 'px';
+    }
+
+    if (glow) {
+      glow.style.marginLeft = (nx * 6) + 'px';
+      glow.style.marginTop = (ny * 5) + 'px';
+    }
+
+    if (grid) {
+      grid.style.transform = 'translate3d(' + (nx * -5) + 'px,' + (ny * -4) + 'px,0)';
+    }
+  });
+
+  stage.addEventListener('pointerleave', () => {
+    if (network) {
+      network.style.marginLeft = '';
+      network.style.marginTop = '';
+    }
+    if (profile) profile.style.marginLeft = '';
+    if (glow) {
+      glow.style.marginLeft = '';
+      glow.style.marginTop = '';
+    }
+    if (grid) grid.style.transform = '';
+  });
+})();
