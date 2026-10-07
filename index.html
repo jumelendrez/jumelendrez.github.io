@@ -369,42 +369,77 @@
             <div class="dossier-index">PROJECT / 01</div>
             <div class="dossier-visual visual-bgc project-visual-v6">
               <div class="blueprint-grid"></div>
-              <div class="bgc-depth" aria-hidden="true">
-                <span class="bgc-column c1"></span><span class="bgc-column c2"></span><span class="bgc-column c3"></span>
-                <span class="bgc-glow g1"></span><span class="bgc-glow g2"></span>
-              </div>
-              <svg class="bgc-topology" viewBox="0 0 560 520" aria-hidden="true">
+              <svg class="bgc-coverage-map" viewBox="0 0 560 520" aria-hidden="true">
                 <defs>
-                  <filter id="bgcGlow" x="-80%" y="-80%" width="260%" height="260%">
-                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <filter id="bgcSignalGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="3.6" result="blur"/>
                     <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                   </filter>
                 </defs>
-                <g class="bgc-link-lines">
-                  <path id="bgcPath1" d="M95 365 L188 250 L282 296 L388 192 L468 260"/>
-                  <path id="bgcPath2" d="M142 150 L238 228 L354 142 L440 350"/>
-                  <path id="bgcPath3" d="M116 418 L248 360 L352 398 L460 332"/>
+
+                <g class="bgc-uplinks">
+                  <path class="wan-line wan-a" d="M92 74 C158 92 214 136 280 238"/>
+                  <path class="wan-line wan-b" d="M468 74 C402 92 346 136 280 238"/>
+                  <text x="70" y="58">WAN A</text>
+                  <text x="448" y="58">WAN B</text>
                 </g>
-                <g class="bgc-device-nodes">
-                  <circle cx="95" cy="365" r="8"/><circle cx="188" cy="250" r="8"/>
-                  <circle cx="282" cy="296" r="9"/><circle cx="388" cy="192" r="8"/>
-                  <circle cx="468" cy="260" r="8"/><circle cx="142" cy="150" r="7"/>
-                  <circle cx="354" cy="142" r="7"/><circle cx="440" cy="350" r="8"/>
+
+                <g class="bgc-access-links">
+                  <path id="bgcCoreAp1" d="M280 270 L142 160"/>
+                  <path id="bgcCoreAp2" d="M280 270 L418 160"/>
+                  <path id="bgcCoreAp3" d="M280 270 L138 382"/>
+                  <path id="bgcCoreAp4" d="M280 270 L422 382"/>
                 </g>
-                <circle class="bgc-packet cyan" r="5">
-                  <animateMotion dur="4.8s" repeatCount="indefinite" path="M95 365 L188 250 L282 296 L388 192 L468 260"/>
+
+                <g class="bgc-ap-zone z1">
+                  <circle class="coverage-ring r1" cx="142" cy="160" r="34"/>
+                  <circle class="coverage-ring r2" cx="142" cy="160" r="50"/>
+                  <circle class="ap-node" cx="142" cy="160" r="8"/>
+                  <text x="120" y="118">AP ZONE</text>
+                </g>
+                <g class="bgc-ap-zone z2">
+                  <circle class="coverage-ring r1" cx="418" cy="160" r="34"/>
+                  <circle class="coverage-ring r2" cx="418" cy="160" r="50"/>
+                  <circle class="ap-node" cx="418" cy="160" r="8"/>
+                  <text x="396" y="118">AP ZONE</text>
+                </g>
+                <g class="bgc-ap-zone z3">
+                  <circle class="coverage-ring r1" cx="138" cy="382" r="34"/>
+                  <circle class="coverage-ring r2" cx="138" cy="382" r="50"/>
+                  <circle class="ap-node" cx="138" cy="382" r="8"/>
+                  <text x="116" y="444">AP ZONE</text>
+                </g>
+                <g class="bgc-ap-zone z4">
+                  <circle class="coverage-ring r1" cx="422" cy="382" r="34"/>
+                  <circle class="coverage-ring r2" cx="422" cy="382" r="50"/>
+                  <circle class="ap-node" cx="422" cy="382" r="8"/>
+                  <text x="400" y="444">AP ZONE</text>
+                </g>
+
+                <g class="bgc-core-node">
+                  <circle class="core-halo" cx="280" cy="270" r="54"/>
+                  <circle class="core-halo inner" cx="280" cy="270" r="40"/>
+                  <circle class="core-dot" cx="280" cy="270" r="10"/>
+                </g>
+
+                <circle class="bgc-flow-packet" r="4.5">
+                  <animateMotion dur="6.4s" repeatCount="indefinite" path="M92 74 C158 92 214 136 280 238 L280 270 L418 160"/>
                 </circle>
-                <circle class="bgc-packet amber" r="4">
-                  <animateMotion dur="6.2s" repeatCount="indefinite" path="M142 150 L238 228 L354 142 L440 350"/>
+                <circle class="bgc-flow-packet secondary" r="4">
+                  <animateMotion dur="7.6s" begin="1.4s" repeatCount="indefinite" path="M468 74 C402 92 346 136 280 238 L280 270 L138 382"/>
                 </circle>
               </svg>
-              <div class="bgc-core-pulse">
-                <span class="bgc-core-ring r1"></span><span class="bgc-core-ring r2"></span><span class="bgc-core-ring r3"></span>
-                <div class="visual-core">BGC</div>
+
+              <div class="bgc-core-label">
+                <small>CORE</small>
+                <strong>BGC</strong>
+                <span>MANAGED WLAN</span>
               </div>
-              <div class="bgc-status-chip s1">CORE <b>ONLINE</b></div>
-              <div class="bgc-status-chip s2">WLAN <b>ACTIVE</b></div>
-              <div class="bgc-status-chip s3">EDGE <b>STABLE</b></div>
+
+              <div class="bgc-legend">
+                <span><i class="wan"></i>Dual uplink</span>
+                <span><i class="wlan"></i>Wireless coverage</span>
+              </div>
               <span class="visual-caption">ENTERPRISE NETWORK / WIRELESS</span>
             </div>
             <div class="dossier-copy">
@@ -427,34 +462,62 @@
               <div class="warehouse-lines"></div>
               <div class="tarlac-floor" aria-hidden="true"></div>
               <div class="tarlac-racks" aria-hidden="true">
-                <span class="rack rack-a"></span><span class="rack rack-b"></span><span class="rack rack-c"></span><span class="rack rack-d"></span>
+                <span class="rack rack-a"><i></i><i></i><i></i></span>
+                <span class="rack rack-b"><i></i><i></i><i></i></span>
+                <span class="rack rack-c"><i></i><i></i><i></i></span>
+                <span class="rack rack-d"><i></i><i></i><i></i></span>
               </div>
-              <svg class="tarlac-route" viewBox="0 0 560 520" aria-hidden="true">
+
+              <svg class="tarlac-live-path" viewBox="0 0 560 520" aria-hidden="true">
                 <defs>
-                  <filter id="tarlacGlow" x="-80%" y="-80%" width="260%" height="260%">
-                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <filter id="tarlacSignalGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="3.4" result="blur"/>
                     <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                   </filter>
                 </defs>
-                <path class="route-main" d="M80 158 L190 158 L250 250 L354 250 L430 164 L488 164"/>
-                <path class="route-branch" d="M250 250 L214 370 L360 370 L430 164"/>
-                <g class="route-nodes">
-                  <circle cx="80" cy="158" r="8"/><circle cx="190" cy="158" r="8"/>
-                  <circle cx="250" cy="250" r="10"/><circle cx="354" cy="250" r="8"/>
-                  <circle cx="430" cy="164" r="8"/><circle cx="488" cy="164" r="8"/>
-                  <circle cx="214" cy="370" r="8"/><circle cx="360" cy="370" r="8"/>
+
+                <path class="site-backbone" d="M280 86 L280 222 L178 300 L178 402"/>
+                <path class="site-backbone branch" d="M280 222 L386 300 L386 402"/>
+
+                <g class="tarlac-uplink">
+                  <circle cx="280" cy="78" r="9"/>
+                  <circle class="uplink-ring" cx="280" cy="78" r="24"/>
+                  <text x="250" y="45">SITE UPLINK</text>
                 </g>
-                <circle class="route-packet cyan" r="5">
-                  <animateMotion dur="4.4s" repeatCount="indefinite" path="M80 158 L190 158 L250 250 L354 250 L430 164 L488 164"/>
+
+                <g class="tarlac-zone zone-a">
+                  <circle class="zone-ring r1" cx="178" cy="402" r="34"/>
+                  <circle class="zone-ring r2" cx="178" cy="402" r="50"/>
+                  <circle class="zone-node" cx="178" cy="402" r="8"/>
+                  <text x="150" y="466">ZONE A</text>
+                </g>
+
+                <g class="tarlac-zone zone-b">
+                  <circle class="zone-ring r1" cx="386" cy="402" r="34"/>
+                  <circle class="zone-ring r2" cx="386" cy="402" r="50"/>
+                  <circle class="zone-node" cx="386" cy="402" r="8"/>
+                  <text x="358" y="466">ZONE B</text>
+                </g>
+
+                <g class="tarlac-core-node">
+                  <circle class="core-ring" cx="280" cy="222" r="44"/>
+                  <circle class="core-dot" cx="280" cy="222" r="10"/>
+                </g>
+
+                <circle class="tarlac-data-packet" r="4.5">
+                  <animateMotion dur="6.8s" repeatCount="indefinite" path="M280 86 L280 222 L178 300 L178 402"/>
                 </circle>
-                <circle class="route-packet amber" r="4">
-                  <animateMotion dur="5.8s" repeatCount="indefinite" path="M214 370 L250 250 L354 250 L430 164"/>
+                <circle class="tarlac-data-packet secondary" r="4">
+                  <animateMotion dur="7.8s" begin="1.7s" repeatCount="indefinite" path="M280 86 L280 222 L386 300 L386 402"/>
                 </circle>
               </svg>
-              <div class="tarlac-core">
-                <span class="tarlac-core-pulse p1"></span><span class="tarlac-core-pulse p2"></span>
-                <div class="visual-core visual-core-small">TARLAC</div>
+
+              <div class="tarlac-core-label">
+                <small>LIVE SITE</small>
+                <strong>TARLAC</strong>
+                <span>CONNECTIVITY PATH</span>
               </div>
+
               <div class="tarlac-ops">
                 <span>SITE LINK <b>UP</b></span>
                 <span>DEVICES <b>ONLINE</b></span>
