@@ -3823,3 +3823,246 @@
     animation:none!important;
   }
 }
+
+
+/* =========================================================
+   V6.18 PROJECT MOTION REDESIGN — ABSTRACT, PROJECT-RELEVANT
+   No location labels inside visuals. No "BGC"/"TARLAC" badges.
+   ========================================================= */
+
+/* Hide prior V6.17 internals if they survive in cache/markup. */
+.bgc-coverage-map,
+.bgc-core-label,
+.bgc-legend,
+.tarlac-live-path,
+.tarlac-core-label,
+.tarlac-ops{
+  display:none!important;
+}
+
+/* Shared visual canvas */
+.project-visual-v6{
+  overflow:hidden;
+  transform:none!important;
+  background:
+    radial-gradient(circle at 50% 48%,rgba(0,223,241,.060),transparent 38%),
+    linear-gradient(180deg,#071522,#06111c);
+}
+
+.project-visual-v6 .blueprint-grid,
+.project-visual-v6 .warehouse-lines{
+  animation:none!important;
+  opacity:.42;
+}
+
+/* ---------- Enterprise wireless: coverage + packet flow ---------- */
+.wireless-motion{
+  position:absolute;
+  inset:6% 7% 8%;
+  z-index:3;
+  width:86%;
+  height:86%;
+  overflow:visible;
+}
+
+.wireless-links path{
+  fill:none;
+  stroke:rgba(37,218,236,.25);
+  stroke-width:1.35;
+  vector-effect:non-scaling-stroke;
+}
+
+.wireless-core rect{
+  fill:rgba(3,15,23,.86);
+  stroke:rgba(38,225,239,.48);
+  stroke-width:1.25;
+}
+
+.wireless-core circle{
+  fill:#29e0eb;
+  opacity:.56;
+  filter:url(#wirelessGlow);
+}
+
+.wireless-ap .coverage{
+  fill:none;
+  stroke:rgba(40,224,237,.27);
+  stroke-width:1.1;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:wifiCoverage 6.2s ease-in-out infinite;
+}
+
+.wireless-ap .coverage.inner{
+  animation-delay:1.35s;
+  opacity:.54;
+}
+
+.wireless-ap.ap2 .coverage{animation-delay:.7s}
+.wireless-ap.ap3 .coverage{animation-delay:1.4s}
+.wireless-ap.ap4 .coverage{animation-delay:2.1s}
+.wireless-ap.ap5 .coverage{animation-delay:2.8s}
+
+@keyframes wifiCoverage{
+  0%,100%{transform:scale(.93);opacity:.18}
+  50%{transform:scale(1.06);opacity:.54}
+}
+
+.wireless-ap .ap-dot{
+  fill:#2be1ec;
+  filter:url(#wirelessGlow);
+}
+
+.wifi-packet{
+  fill:#f4ffff;
+  filter:url(#wirelessGlow);
+}
+
+.wifi-packet.alt{fill:#ffba4d}
+.wifi-packet.soft{fill:#58d9ff;opacity:.85}
+
+.coverage-sweep{
+  fill:none;
+  stroke:rgba(41,222,236,.14);
+  stroke-width:1.2;
+  stroke-dasharray:34 1060;
+  transform-origin:280px 262px;
+  animation:wifiSweep 10s linear infinite;
+}
+
+@keyframes wifiSweep{
+  to{transform:rotate(360deg)}
+}
+
+/* ---------- Warehouse: backbone + endpoint health ---------- */
+.visual-tarlac{
+  background:
+    linear-gradient(180deg,rgba(8,25,38,.72),rgba(5,17,28,.94)),
+    radial-gradient(circle at 50% 48%,rgba(0,223,241,.05),transparent 38%);
+}
+
+.tarlac-floor{
+  opacity:.52;
+}
+
+.tarlac-racks{
+  opacity:.44;
+}
+
+.rack{
+  background:linear-gradient(180deg,rgba(15,65,80,.14),rgba(6,25,35,.06));
+}
+
+.rack i{
+  position:absolute;
+  left:50%;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  transform:translateX(-50%);
+  background:#27dfe9;
+  opacity:.16;
+  box-shadow:0 0 7px rgba(39,223,233,.38);
+  animation:rackHeartbeat 6.5s steps(1,end) infinite;
+}
+
+.rack i:nth-child(1){top:24%}
+.rack i:nth-child(2){top:49%;animation-delay:1.5s}
+.rack i:nth-child(3){top:73%;animation-delay:3s}
+.rack-b i{animation-delay:.8s}
+.rack-c i{animation-delay:1.6s}
+.rack-d i{animation-delay:2.4s}
+
+@keyframes rackHeartbeat{
+  0%,78%,100%{opacity:.15}
+  82%,88%{opacity:.70}
+}
+
+.warehouse-motion{
+  position:absolute;
+  inset:8% 7% 8%;
+  z-index:3;
+  width:86%;
+  height:84%;
+  overflow:visible;
+}
+
+.warehouse-backbone path{
+  fill:none;
+  stroke:rgba(39,220,235,.28);
+  stroke-width:1.4;
+  vector-effect:non-scaling-stroke;
+}
+
+.warehouse-switch rect{
+  fill:rgba(3,15,23,.86);
+  stroke:rgba(38,224,239,.44);
+  stroke-width:1.2;
+}
+
+.warehouse-switch circle{
+  fill:#27dfe9;
+  opacity:.52;
+  filter:url(#warehouseGlow);
+}
+
+.warehouse-endpoint .endpoint-ring{
+  fill:none;
+  stroke:rgba(40,224,237,.28);
+  stroke-width:1.1;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:endpointPulse 5.8s ease-in-out infinite;
+}
+
+.warehouse-endpoint.e2 .endpoint-ring{animation-delay:.8s}
+.warehouse-endpoint.e3 .endpoint-ring{animation-delay:1.6s}
+.warehouse-endpoint.e4 .endpoint-ring{animation-delay:2.4s}
+
+@keyframes endpointPulse{
+  0%,100%{transform:scale(.92);opacity:.18}
+  50%{transform:scale(1.10);opacity:.50}
+}
+
+.warehouse-endpoint .endpoint-dot{
+  fill:#2ae0ec;
+  filter:url(#warehouseGlow);
+}
+
+.warehouse-packet{
+  fill:#f4ffff;
+  filter:url(#warehouseGlow);
+}
+
+.warehouse-packet.alt{
+  fill:#ffba4d;
+}
+
+.warehouse-scan{
+  position:absolute;
+  z-index:2;
+  left:8%;
+  right:8%;
+  top:20%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(40,224,237,.30),transparent);
+  opacity:.0;
+  animation:warehouseScan 9.5s ease-in-out infinite;
+}
+
+@keyframes warehouseScan{
+  0%,18%,100%{transform:translateY(0);opacity:0}
+  24%{opacity:.30}
+  64%{transform:translateY(280px);opacity:.18}
+  72%{opacity:0}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .wireless-ap .coverage,
+  .coverage-sweep,
+  .rack i,
+  .warehouse-endpoint .endpoint-ring,
+  .warehouse-scan{
+    animation:none!important;
+  }
+}
