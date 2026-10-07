@@ -23,9 +23,9 @@
   <div class="ambient ambient-two" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
 
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="container nav-shell">
-      <a class="brand" href="#top" aria-label="Jake Melendrez home">
+      <a class="brand" href="#home" aria-label="Jake Melendrez home">
         <span class="brand-mark" aria-hidden="true">JM</span>
         <span class="brand-copy">
           <strong>Jake Melendrez</strong>
@@ -38,7 +38,7 @@
       </button>
 
       <nav class="site-nav v6-nav" id="site-nav" aria-label="Primary navigation">
-        <a class="is-active" href="#top">Home</a>
+        <a class="is-active" href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#work">Projects</a>
         <a href="#expertise">Capabilities</a>
@@ -50,7 +50,7 @@
   </header>
 
   <main id="main-content">
-    <section class="v6-hero" aria-labelledby="v6-title">
+    <section class="v6-hero" id="home" aria-labelledby="v6-title">
       <div class="container v6-wrap">
         <div class="v6-shell">
           <div class="v6-atmosphere" aria-hidden="true">
@@ -366,12 +366,44 @@
         <div class="dossier-list">
           <article class="dossier dossier-featured" data-reveal="up">
             <div class="dossier-index">PROJECT / 01</div>
-            <div class="dossier-visual visual-bgc">
+            <div class="dossier-visual visual-bgc project-visual-v6">
               <div class="blueprint-grid"></div>
-              <div class="radar-ring radar-one"></div>
-              <div class="radar-ring radar-two"></div>
-              <div class="radar-sweep"></div>
-              <div class="visual-core">BGC</div>
+              <div class="bgc-depth" aria-hidden="true">
+                <span class="bgc-column c1"></span><span class="bgc-column c2"></span><span class="bgc-column c3"></span>
+                <span class="bgc-glow g1"></span><span class="bgc-glow g2"></span>
+              </div>
+              <svg class="bgc-topology" viewBox="0 0 560 520" aria-hidden="true">
+                <defs>
+                  <filter id="bgcGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <g class="bgc-link-lines">
+                  <path id="bgcPath1" d="M95 365 L188 250 L282 296 L388 192 L468 260"/>
+                  <path id="bgcPath2" d="M142 150 L238 228 L354 142 L440 350"/>
+                  <path id="bgcPath3" d="M116 418 L248 360 L352 398 L460 332"/>
+                </g>
+                <g class="bgc-device-nodes">
+                  <circle cx="95" cy="365" r="8"/><circle cx="188" cy="250" r="8"/>
+                  <circle cx="282" cy="296" r="9"/><circle cx="388" cy="192" r="8"/>
+                  <circle cx="468" cy="260" r="8"/><circle cx="142" cy="150" r="7"/>
+                  <circle cx="354" cy="142" r="7"/><circle cx="440" cy="350" r="8"/>
+                </g>
+                <circle class="bgc-packet cyan" r="5">
+                  <animateMotion dur="4.8s" repeatCount="indefinite" path="M95 365 L188 250 L282 296 L388 192 L468 260"/>
+                </circle>
+                <circle class="bgc-packet amber" r="4">
+                  <animateMotion dur="6.2s" repeatCount="indefinite" path="M142 150 L238 228 L354 142 L440 350"/>
+                </circle>
+              </svg>
+              <div class="bgc-core-pulse">
+                <span class="bgc-core-ring r1"></span><span class="bgc-core-ring r2"></span><span class="bgc-core-ring r3"></span>
+                <div class="visual-core">BGC</div>
+              </div>
+              <div class="bgc-status-chip s1">CORE <b>ONLINE</b></div>
+              <div class="bgc-status-chip s2">WLAN <b>ACTIVE</b></div>
+              <div class="bgc-status-chip s3">EDGE <b>STABLE</b></div>
               <span class="visual-caption">ENTERPRISE NETWORK / WIRELESS</span>
             </div>
             <div class="dossier-copy">
@@ -390,15 +422,44 @@
 
           <article class="dossier dossier-reverse" data-reveal="up">
             <div class="dossier-index">PROJECT / 02</div>
-            <div class="dossier-visual visual-tarlac">
+            <div class="dossier-visual visual-tarlac project-visual-v6">
               <div class="warehouse-lines"></div>
-              <div class="warehouse-node node-a"></div>
-              <div class="warehouse-node node-b"></div>
-              <div class="warehouse-node node-c"></div>
-              <div class="warehouse-path path-a"></div>
-              <div class="warehouse-path path-b"></div>
+              <div class="tarlac-floor" aria-hidden="true"></div>
+              <div class="tarlac-racks" aria-hidden="true">
+                <span class="rack rack-a"></span><span class="rack rack-b"></span><span class="rack rack-c"></span><span class="rack rack-d"></span>
+              </div>
+              <svg class="tarlac-route" viewBox="0 0 560 520" aria-hidden="true">
+                <defs>
+                  <filter id="tarlacGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <path class="route-main" d="M80 158 L190 158 L250 250 L354 250 L430 164 L488 164"/>
+                <path class="route-branch" d="M250 250 L214 370 L360 370 L430 164"/>
+                <g class="route-nodes">
+                  <circle cx="80" cy="158" r="8"/><circle cx="190" cy="158" r="8"/>
+                  <circle cx="250" cy="250" r="10"/><circle cx="354" cy="250" r="8"/>
+                  <circle cx="430" cy="164" r="8"/><circle cx="488" cy="164" r="8"/>
+                  <circle cx="214" cy="370" r="8"/><circle cx="360" cy="370" r="8"/>
+                </g>
+                <circle class="route-packet cyan" r="5">
+                  <animateMotion dur="4.4s" repeatCount="indefinite" path="M80 158 L190 158 L250 250 L354 250 L430 164 L488 164"/>
+                </circle>
+                <circle class="route-packet amber" r="4">
+                  <animateMotion dur="5.8s" repeatCount="indefinite" path="M214 370 L250 250 L354 250 L430 164"/>
+                </circle>
+              </svg>
+              <div class="tarlac-core">
+                <span class="tarlac-core-pulse p1"></span><span class="tarlac-core-pulse p2"></span>
+                <div class="visual-core visual-core-small">TARLAC</div>
+              </div>
+              <div class="tarlac-ops">
+                <span>SITE LINK <b>UP</b></span>
+                <span>DEVICES <b>ONLINE</b></span>
+                <span>TESTING <b>PASS</b></span>
+              </div>
               <span class="visual-caption">WAREHOUSE / SITE CONNECTIVITY</span>
-              <div class="visual-core visual-core-small">TARLAC</div>
             </div>
             <div class="dossier-copy">
               <div class="project-meta"><span>NETWORK / CONNECTIVITY</span><span>TARLAC CITY</span></div>
