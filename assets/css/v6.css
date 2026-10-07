@@ -1394,3 +1394,355 @@
     animation:none!important;
   }
 }
+
+
+/* =========================================================
+   V6.2 PROJECT VISUAL MOTION
+   More purposeful network/warehouse motion; no generic radar.
+   ========================================================= */
+
+#home{scroll-margin-top:0}
+
+.project-visual-v6{
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 50% 48%,rgba(0,224,241,.075),transparent 34%),
+    linear-gradient(180deg,#071522,#06111c);
+}
+
+.project-visual-v6 .blueprint-grid,
+.project-visual-v6 .warehouse-lines{
+  opacity:.70;
+  background-size:28px 28px;
+}
+
+.visual-bgc .blueprint-grid{
+  animation:bgcGridDrift 18s linear infinite;
+}
+@keyframes bgcGridDrift{
+  to{background-position:28px 28px}
+}
+
+.bgc-depth{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.bgc-column{
+  position:absolute;
+  top:-8%;
+  bottom:-8%;
+  width:44px;
+  opacity:.24;
+  filter:blur(7px);
+  background:linear-gradient(90deg,transparent,rgba(0,218,244,.18),transparent);
+  animation:bgcColumn 8s ease-in-out infinite;
+}
+.bgc-column.c1{left:13%}
+.bgc-column.c2{left:48%;animation-delay:2.3s}
+.bgc-column.c3{right:12%;animation-delay:4.6s}
+@keyframes bgcColumn{
+  0%,100%{transform:translateX(-5px);opacity:.16}
+  50%{transform:translateX(6px);opacity:.34}
+}
+
+.bgc-glow{
+  position:absolute;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:#22e4ef;
+  box-shadow:0 0 14px rgba(34,228,239,.85),0 0 38px rgba(34,228,239,.25);
+  animation:bgcGlowPulse 3.2s ease-in-out infinite;
+}
+.bgc-glow.g1{left:15%;top:18%}
+.bgc-glow.g2{
+  right:13%;
+  bottom:20%;
+  background:#ffb84a;
+  box-shadow:0 0 14px rgba(255,184,74,.8),0 0 38px rgba(255,184,74,.22);
+  animation-delay:1.4s;
+}
+@keyframes bgcGlowPulse{50%{transform:scale(1.5);opacity:.45}}
+
+.bgc-topology{
+  position:absolute;
+  inset:6% 4% 7%;
+  z-index:2;
+  width:92%;
+  height:87%;
+  overflow:visible;
+}
+
+.bgc-link-lines path{
+  fill:none;
+  stroke:rgba(29,221,239,.26);
+  stroke-width:1.1;
+  vector-effect:non-scaling-stroke;
+  stroke-dasharray:5 8;
+  animation:bgcRouteDash 12s linear infinite;
+}
+.bgc-link-lines path:nth-child(2){animation-direction:reverse;animation-duration:15s}
+.bgc-link-lines path:nth-child(3){animation-duration:10s}
+@keyframes bgcRouteDash{to{stroke-dashoffset:-130}}
+
+.bgc-device-nodes circle{
+  fill:#1fe1ed;
+  filter:url(#bgcGlow);
+  animation:bgcNode 2.8s ease-in-out infinite;
+}
+.bgc-device-nodes circle:nth-child(3n){animation-delay:.8s}
+.bgc-device-nodes circle:nth-child(3n+1){animation-delay:1.6s}
+@keyframes bgcNode{50%{opacity:.42}}
+
+.bgc-packet.cyan{fill:#eaffff;filter:url(#bgcGlow)}
+.bgc-packet.amber{fill:#ffbd55;filter:url(#bgcGlow)}
+
+.bgc-core-pulse{
+  position:absolute;
+  left:50%;
+  top:50%;
+  z-index:5;
+  width:122px;
+  height:122px;
+  transform:translate(-50%,-50%);
+}
+
+.bgc-core-pulse .visual-core{
+  width:100%;
+  height:100%;
+}
+
+.bgc-core-ring{
+  position:absolute;
+  inset:0;
+  border:1px solid rgba(30,225,238,.25);
+  border-radius:50%;
+  animation:bgcCoreRing 3.4s ease-out infinite;
+}
+.bgc-core-ring.r2{animation-delay:1.1s}
+.bgc-core-ring.r3{animation-delay:2.2s}
+@keyframes bgcCoreRing{
+  0%{transform:scale(.88);opacity:.45}
+  80%,100%{transform:scale(2.05);opacity:0}
+}
+
+.bgc-status-chip{
+  position:absolute;
+  z-index:5;
+  display:grid;
+  gap:2px;
+  min-width:82px;
+  padding:7px 9px;
+  border:1px solid rgba(43,199,219,.20);
+  border-radius:6px;
+  background:rgba(4,15,24,.72);
+  color:#7891a1;
+  font-family:var(--mono);
+  font-size:.46rem;
+  letter-spacing:.08em;
+  backdrop-filter:blur(6px);
+  animation:bgcChipFloat 5.6s ease-in-out infinite;
+}
+.bgc-status-chip b{color:#26dfed;font-size:.48rem}
+.bgc-status-chip.s1{left:8%;top:13%}
+.bgc-status-chip.s2{right:8%;top:16%;animation-delay:1.1s}
+.bgc-status-chip.s3{right:10%;bottom:12%;animation-delay:2.2s}
+@keyframes bgcChipFloat{50%{transform:translateY(-5px)}}
+
+/* Tarlac: warehouse aisle + live operational route */
+.visual-tarlac{
+  background:
+    radial-gradient(circle at 48% 54%,rgba(0,224,241,.07),transparent 36%),
+    linear-gradient(180deg,#071522,#06111c);
+}
+
+.tarlac-floor{
+  position:absolute;
+  z-index:0;
+  left:-10%;
+  right:-10%;
+  bottom:-2%;
+  height:48%;
+  transform:perspective(400px) rotateX(68deg);
+  transform-origin:center bottom;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 54px,rgba(33,191,216,.13) 55px 56px),
+    repeating-linear-gradient(0deg,transparent 0 38px,rgba(33,191,216,.09) 39px 40px);
+  mask-image:linear-gradient(to top,#000 20%,transparent 100%);
+}
+
+.tarlac-racks{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:.78;
+}
+.rack{
+  position:absolute;
+  top:14%;
+  width:58px;
+  height:66%;
+  border:1px solid rgba(36,171,203,.18);
+  background:
+    repeating-linear-gradient(0deg,rgba(0,215,239,.055) 0 2px,transparent 3px 32px),
+    linear-gradient(90deg,rgba(0,212,236,.02),rgba(0,212,236,.08),rgba(0,212,236,.02));
+  box-shadow:inset 0 0 30px rgba(0,218,242,.03);
+  transform:skewY(-4deg);
+}
+.rack::before,
+.rack::after{
+  content:"";
+  position:absolute;
+  left:8px;
+  right:8px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(0,229,243,.48),transparent);
+  animation:rackIndicator 4s ease-in-out infinite;
+}
+.rack::before{top:22%}
+.rack::after{top:62%;animation-delay:1.8s}
+.rack-a{left:8%}
+.rack-b{left:24%;height:72%;top:11%}
+.rack-c{right:24%;height:72%;top:11%}
+.rack-d{right:8%}
+@keyframes rackIndicator{50%{opacity:.22}}
+
+.tarlac-route{
+  position:absolute;
+  inset:5%;
+  z-index:3;
+  width:90%;
+  height:90%;
+  overflow:visible;
+}
+
+.tarlac-route .route-main,
+.tarlac-route .route-branch{
+  fill:none;
+  stroke:rgba(29,221,239,.34);
+  stroke-width:1.2;
+  vector-effect:non-scaling-stroke;
+  stroke-dasharray:7 8;
+  animation:tarlacRoute 10s linear infinite;
+}
+.tarlac-route .route-branch{
+  stroke:rgba(255,184,73,.25);
+  animation-direction:reverse;
+  animation-duration:13s;
+}
+@keyframes tarlacRoute{to{stroke-dashoffset:-150}}
+
+.route-nodes circle{
+  fill:#20e1ed;
+  filter:url(#tarlacGlow);
+  animation:tarlacNode 2.7s ease-in-out infinite;
+}
+.route-nodes circle:nth-child(even){animation-delay:.9s}
+@keyframes tarlacNode{50%{opacity:.40}}
+
+.route-packet.cyan{fill:#f0ffff;filter:url(#tarlacGlow)}
+.route-packet.amber{fill:#ffbd55;filter:url(#tarlacGlow)}
+
+.tarlac-core{
+  position:absolute;
+  left:50%;
+  top:52%;
+  z-index:5;
+  width:105px;
+  height:105px;
+  transform:translate(-50%,-50%);
+}
+.tarlac-core .visual-core{
+  width:100%;
+  height:100%;
+}
+.tarlac-core-pulse{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:1px solid rgba(31,225,239,.28);
+  animation:tarlacPulse 3.3s ease-out infinite;
+}
+.tarlac-core-pulse.p2{animation-delay:1.65s}
+@keyframes tarlacPulse{
+  from{transform:scale(.88);opacity:.48}
+  to{transform:scale(2.2);opacity:0}
+}
+
+.tarlac-ops{
+  position:absolute;
+  z-index:5;
+  right:8%;
+  bottom:10%;
+  display:grid;
+  gap:6px;
+  min-width:108px;
+  padding:9px 10px;
+  border:1px solid rgba(49,182,207,.20);
+  border-radius:7px;
+  background:rgba(4,15,24,.72);
+  backdrop-filter:blur(6px);
+}
+.tarlac-ops span{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:#738a9a;
+  font-family:var(--mono);
+  font-size:.45rem;
+  letter-spacing:.07em;
+}
+.tarlac-ops b{color:#25dfeb}
+
+.project-visual-v6::before{
+  content:"";
+  position:absolute;
+  z-index:6;
+  left:0;
+  right:0;
+  top:-22%;
+  height:18%;
+  pointer-events:none;
+  background:linear-gradient(to bottom,transparent,rgba(36,225,241,.08),transparent);
+  animation:projectScan 7s linear infinite;
+}
+@keyframes projectScan{
+  to{transform:translateY(720%)}
+}
+
+.dossier:hover .project-visual-v6{
+  box-shadow:inset 0 0 70px rgba(0,218,240,.045);
+}
+
+@media(max-width:760px){
+  .bgc-status-chip.s3,
+  .tarlac-ops{display:none}
+  .rack{width:42px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .visual-bgc .blueprint-grid,
+  .bgc-column,
+  .bgc-glow,
+  .bgc-link-lines path,
+  .bgc-device-nodes circle,
+  .bgc-core-ring,
+  .bgc-status-chip,
+  .rack::before,
+  .rack::after,
+  .tarlac-route .route-main,
+  .tarlac-route .route-branch,
+  .route-nodes circle,
+  .tarlac-core-pulse,
+  .project-visual-v6::before{
+    animation:none!important;
+  }
+
+  .bgc-packet,
+  .route-packet{display:none!important}
+}
