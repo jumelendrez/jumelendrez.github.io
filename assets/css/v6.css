@@ -4066,3 +4066,186 @@
     animation:none!important;
   }
 }
+
+
+/* =========================================================
+   V6.19 MOTION RESET — calm, professional interaction system
+   Rule: motion confirms interaction; it does not compete with content.
+   ========================================================= */
+
+/* Remove decorative cursor tracking and continuous ambient clutter. */
+.v6-page .cursor-glow{
+  display:none!important;
+}
+
+.v6-page .ambient{
+  opacity:.035!important;
+}
+
+/* One restrained ambient hero pulse only. */
+.v6-page .v6-shell{
+  animation:v619HeroAmbient 12s ease-in-out infinite!important;
+}
+
+@keyframes v619HeroAmbient{
+  0%,100%{
+    box-shadow:
+      inset 0 0 130px rgba(0,0,0,.30),
+      0 26px 78px rgba(0,0,0,.30);
+  }
+  50%{
+    box-shadow:
+      inset 0 0 130px rgba(0,0,0,.27),
+      0 26px 78px rgba(0,0,0,.30),
+      0 0 54px rgba(28,213,235,.035);
+  }
+}
+
+/* Stop all legacy looping hero decoration. */
+.v6-page .v6-pillar,
+.v6-page .v6-bokeh,
+.v6-page .v6-last::after,
+.v6-page .status-pulse,
+.v6-page .hero-last::after,
+.v6-page .hero-scrollcue span,
+.v6-page .profile-card,
+.v6-page .stage-glow,
+.v6-page .route,
+.v6-page .topology-node .node-ring,
+.v6-page .console-scan{
+  animation:none!important;
+}
+
+/* Technology marquee becomes a normal readable list. */
+.v6-page .tech-track{
+  animation:none!important;
+  transform:none!important;
+}
+
+/* Project visuals are static by default. */
+.v6-page .project-visual-v6 *,
+.v6-page .project-visual-v6::before,
+.v6-page .project-visual-v6::after{
+  animation:none!important;
+}
+
+.v6-page .wifi-packet,
+.v6-page .warehouse-packet,
+.v6-page .bgc-packet,
+.v6-page .route-packet,
+.v6-page .bgc-flow-packet,
+.v6-page .tarlac-data-packet{
+  display:none!important;
+}
+
+.v6-page .coverage-sweep,
+.v6-page .warehouse-scan{
+  display:none!important;
+}
+
+.v6-page .wireless-ap .coverage,
+.v6-page .warehouse-endpoint .endpoint-ring,
+.v6-page .rack i{
+  opacity:.30!important;
+  transform:none!important;
+}
+
+/* Replace looping project animation with one short hover light pass. */
+.v6-page .project-visual-v6::before{
+  content:"";
+  position:absolute;
+  z-index:7;
+  inset:-8%;
+  pointer-events:none;
+  opacity:0;
+  background:
+    linear-gradient(
+      112deg,
+      transparent 32%,
+      rgba(38,222,239,.03) 43%,
+      rgba(38,222,239,.12) 50%,
+      rgba(255,190,80,.035) 54%,
+      transparent 66%
+    );
+  transform:translateX(-115%);
+  transition:transform .42s cubic-bezier(.22,.61,.36,1),opacity .18s ease;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .v6-page .dossier:hover .project-visual-v6::before{
+    opacity:1;
+    transform:translateX(115%);
+  }
+}
+
+/* Hover feedback: quiet and fast. No floating cards. */
+.v6-page .button,
+.v6-page .nav-cta,
+.v6-page .v6-feature-card,
+.v6-page .credential-paper,
+.v6-page .capability-row,
+.v6-page .dossier,
+.v6-page .project-link::after{
+  transition-duration:.18s!important;
+}
+
+.v6-page .dossier:hover{
+  transform:none!important;
+  box-shadow:0 22px 58px rgba(0,0,0,.20)!important;
+}
+
+.v6-page .v6-feature-card:hover{
+  transform:none!important;
+}
+
+.v6-page .credential-doc:hover .credential-paper{
+  transform:translateY(-2px) rotate(0)!important;
+}
+
+.v6-page .capability-row:hover{
+  padding-left:4px!important;
+}
+
+.v6-page .capability-row:hover .capability-arrow{
+  transform:none!important;
+}
+
+/* Reveal once, shorter distance and duration. */
+.v6-page [data-reveal]{
+  transition:
+    opacity .42s cubic-bezier(.22,.61,.36,1),
+    transform .42s cubic-bezier(.22,.61,.36,1)!important;
+}
+
+.v6-page [data-reveal="up"]{transform:translateY(16px)}
+.v6-page [data-reveal="left"]{transform:translateX(-14px)}
+.v6-page [data-reveal="right"]{transform:translateX(14px)}
+.v6-page [data-reveal].is-visible{opacity:1;transform:none}
+
+/* Touch/mobile: no faux hover motion. */
+@media (hover:none),(pointer:coarse){
+  .v6-page .project-visual-v6::before{
+    display:none!important;
+  }
+  .v6-page .capability-row:hover{
+    padding-left:0!important;
+  }
+  .v6-page .credential-doc:hover .credential-paper{
+    transform:none!important;
+  }
+}
+
+/* Accessibility: fully static when reduced motion is requested. */
+@media(prefers-reduced-motion:reduce){
+  .v6-page .v6-shell{
+    animation:none!important;
+  }
+  .v6-page [data-reveal]{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+  }
+  .v6-page .project-visual-v6::before{
+    display:none!important;
+  }
+}
