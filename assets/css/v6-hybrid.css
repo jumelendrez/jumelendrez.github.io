@@ -1,44 +1,35 @@
-/* V6.12 HYBRID HERO — approved-composition reconstruction
-   Strategy:
-   - photographic environment for depth/reflections
-   - transparent portrait remains a separate asset
-   - all copy, navigation, CTAs, capability labels and HUD UI remain coded
-   - desktop geometry is tuned against the owner-approved reference image
-
-   Free-use visual sources:
-   Pexels 2376799 — blue-lit wet urban corridor
-   Pexels 17505092 — futuristic blue reflective corridor
+/* V6.13 HYBRID HERO
+   Final structural approach:
+   - photographic environment is the background layer
+   - Jake remains a separate transparent full-body asset
+   - all copy/navigation/buttons remain real HTML
+   - no redundant HUD cards or repeated labels
 */
 
 .v6-page{
-  --hybrid-city:url("https://images.pexels.com/photos/2376799/pexels-photo-2376799.jpeg?auto=compress&cs=tinysrgb&w=1920");
-  --hybrid-corridor:url("https://images.pexels.com/photos/17505092/pexels-photo-17505092.jpeg?auto=compress&cs=tinysrgb&w=1920");
+  --hero-bg:url("https://images.pexels.com/photos/17505092/pexels-photo-17505092.jpeg?auto=compress&cs=tinysrgb&w=1920");
 }
 
-/* =========================================================
-   DESKTOP — RECONSTRUCT THE APPROVED COMPOSITION
-   ========================================================= */
 @media (min-width:981px){
 
   .v6-page .site-header{
-    height:78px;
+    height:76px;
   }
 
   .v6-page .site-header:not(.is-scrolled){
-    background:
-      linear-gradient(180deg,rgba(1,7,12,.96) 0%,rgba(1,7,12,.78) 62%,rgba(1,7,12,.18) 100%);
-    border-bottom:1px solid rgba(31,212,232,.12);
+    background:linear-gradient(180deg,rgba(1,7,12,.95),rgba(1,7,12,.70) 68%,transparent);
+    border-bottom:1px solid rgba(21,210,233,.10);
     backdrop-filter:none;
   }
 
   .v6-page .site-header:not(.is-scrolled) .nav-shell{
-    min-height:78px;
+    min-height:76px;
   }
 
   .v6-hero{
-    margin-top:-78px;
+    margin-top:-76px;
     padding:0;
-    background:#02080d;
+    background:#02090f;
   }
 
   .v6-wrap{
@@ -47,193 +38,155 @@
   }
 
   .v6-shell{
-    position:relative;
-    height:clamp(675px,70svh,760px);
-    min-height:675px;
-    max-height:760px;
+    height:clamp(700px,76svh,820px);
+    min-height:700px;
+    max-height:820px;
     overflow:hidden;
     isolation:isolate;
     background:
       linear-gradient(90deg,
-        rgba(2,8,13,.97) 0%,
-        rgba(2,9,15,.92) 22%,
-        rgba(2,10,17,.76) 40%,
-        rgba(1,9,15,.34) 58%,
-        rgba(1,8,13,.15) 75%,
-        rgba(1,7,12,.40) 100%),
-      linear-gradient(180deg,
-        rgba(1,7,12,.16) 0%,
-        rgba(1,7,12,.10) 55%,
-        rgba(1,7,12,.56) 100%),
-      var(--hybrid-city) center 58% / cover no-repeat;
-    box-shadow:
-      inset 0 0 150px rgba(0,0,0,.48),
-      0 28px 72px rgba(0,0,0,.36);
+        rgba(1,8,13,.94) 0%,
+        rgba(1,8,13,.89) 24%,
+        rgba(1,9,15,.72) 42%,
+        rgba(1,8,13,.36) 60%,
+        rgba(1,7,12,.16) 77%,
+        rgba(1,7,12,.34) 100%),
+      linear-gradient(180deg,rgba(1,7,12,.12),rgba(1,7,12,.08) 62%,rgba(1,7,12,.52)),
+      var(--hero-bg) center 50% / cover no-repeat;
+    box-shadow:inset 0 0 150px rgba(0,0,0,.42),0 28px 80px rgba(0,0,0,.28);
   }
 
-  /* right-side technical environment — photo, not text/UI */
   .v6-shell::before{
     content:"";
     position:absolute;
-    z-index:0;
     inset:0;
+    z-index:0;
     pointer-events:none;
     background:
-      linear-gradient(90deg,transparent 0 44%,rgba(0,0,0,.08) 51%,rgba(0,0,0,.20) 100%),
-      var(--hybrid-corridor) center 54% / cover no-repeat;
-    opacity:.34;
-    filter:saturate(1.32) contrast(1.10) brightness(.74);
-    mix-blend-mode:screen;
-    -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 40%,rgba(0,0,0,.50) 52%,#000 67%,#000 100%);
-    mask-image:linear-gradient(90deg,transparent 0%,transparent 40%,rgba(0,0,0,.50) 52%,#000 67%,#000 100%);
+      radial-gradient(circle at 72% 42%,rgba(0,220,255,.09),transparent 26%),
+      radial-gradient(ellipse at 69% 90%,rgba(0,215,255,.11),transparent 30%),
+      linear-gradient(90deg,rgba(0,0,0,.24),transparent 36% 78%,rgba(0,0,0,.10));
   }
 
-  /* reflective cyan/amber floor zone */
   .v6-shell::after{
     content:"";
     position:absolute;
-    z-index:1;
     left:0;
     right:0;
     bottom:0;
     height:22%;
+    z-index:1;
     pointer-events:none;
     background:
-      radial-gradient(ellipse at 69% 100%,rgba(0,220,255,.30) 0%,rgba(0,220,255,.10) 29%,transparent 58%),
-      radial-gradient(ellipse at 42% 100%,rgba(255,170,60,.12) 0%,transparent 34%),
-      linear-gradient(180deg,transparent 0%,rgba(1,8,13,.15) 34%,rgba(1,8,13,.72) 100%);
-    box-shadow:inset 0 1px rgba(52,222,240,.06);
+      radial-gradient(ellipse at 69% 100%,rgba(0,223,255,.24),transparent 45%),
+      radial-gradient(ellipse at 37% 100%,rgba(255,174,55,.10),transparent 30%),
+      linear-gradient(180deg,transparent,rgba(1,7,12,.56));
+  }
+
+  /* Simplify old HUD layers; the approved composition no longer needs them. */
+  .v6-hud-panel,
+  .v6-tag,
+  .v6-mindset,
+  .v6-right-rail,
+  .v6-version{
+    display:none!important;
   }
 
   .v6-atmosphere{
-    z-index:1;
-    opacity:.36;
+    opacity:.16;
   }
 
   .v6-atmosphere .v6-pillar{
     display:none;
   }
 
-  .v6-bokeh{
-    width:8px;
-    height:8px;
-    opacity:.48;
-  }
-
-  /* Keep only the useful coded network/HUD motion over the photo. */
   .v6-scene{
     z-index:2;
-    left:35.5%;
-    top:6%;
-    width:62%;
-    height:86%;
-    opacity:.58;
+    left:39%;
+    top:7%;
+    width:55%;
+    height:79%;
+    opacity:.22;
     mix-blend-mode:screen;
-    filter:saturate(1.15);
+    filter:saturate(1.10);
   }
 
-  .v6-scene>rect:first-of-type,
+  .v6-scene>rect,
   .v6-beams,
   .v6-floor-lines,
-  .v6-circuit-traces{
-    opacity:.16;
+  .v6-circuit-traces,
+  .v6-globe-dots{
+    opacity:.10;
   }
 
-  .v6-globe-dots>rect{
-    opacity:.28;
-  }
-
-  .v6-globe-dots path{
-    opacity:.34;
-  }
-
-  .v6-orbits{
-    opacity:.92;
-  }
-
-  .v6-network{
-    opacity:.66;
-  }
-
+  .v6-orbits,
+  .v6-network,
   .v6-nodes,
-  .v6-packets{
-    opacity:.95;
-  }
-
+  .v6-packets,
   .v6-floor-rings{
-    opacity:.72;
+    opacity:.42;
   }
 
-  /* outer frame closely follows the approved screenshot */
   .v6-frame{
-    z-index:12;
-    left:2.8%;
-    top:2.2%;
-    width:94.4%;
-    height:94.8%;
+    z-index:11;
+    left:2.2%;
+    top:2.6%;
+    width:95.6%;
+    height:93.8%;
   }
 
   .v6-frame-main{
-    stroke:rgba(50,225,244,.78);
-    stroke-width:1.1;
+    stroke:rgba(53,221,241,.54);
   }
 
   .v6-frame-top,
   .v6-frame-bottom{
-    opacity:.72;
+    opacity:.45;
   }
 
-  /* Main coded content — larger and higher like the approved design */
+  /* Coded content */
   .v6-copy{
-    z-index:9;
+    z-index:8;
     left:8.2%;
-    top:15.7%;
-    width:38.5%;
+    top:20.2%;
+    width:39%;
     max-width:565px;
   }
 
   .v6-eyebrow{
-    margin:0 0 20px;
-    color:#b9c6cf;
-    font-size:.64rem;
-    letter-spacing:.24em;
+    display:none!important;
   }
 
   .v6-first{
-    font-size:clamp(6.6rem,8.1vw,8.15rem);
-    line-height:.78;
-    letter-spacing:-.075em;
+    font-size:clamp(6.3rem,8.2vw,8.1rem);
+    line-height:.79;
   }
 
   .v6-last{
-    margin-top:9px;
-    font-size:clamp(4.8rem,6.2vw,6.15rem);
-    line-height:.88;
-    -webkit-text-stroke:1.35px rgba(236,246,250,.83);
-  }
-
-  .v6-last::after{
-    right:-17px;
+    margin-top:8px;
+    font-size:clamp(4.7rem,6.4vw,6.15rem);
+    line-height:.89;
+    -webkit-text-stroke:1.25px rgba(240,248,251,.82);
   }
 
   .v6-roles{
     margin-top:22px;
-    color:#f2f6f8;
-    font-size:clamp(.95rem,1vw,1.08rem);
+    color:#f3f7f9;
+    font-size:clamp(.96rem,1.02vw,1.08rem);
     line-height:1.48;
   }
 
   .v6-summary{
-    max-width:505px;
+    max-width:520px;
     margin-top:14px;
-    color:#aebec8;
-    font-size:clamp(.91rem,.95vw,1.01rem);
-    line-height:1.57;
+    color:#b1c0c9;
+    font-size:clamp(.92rem,1vw,1.03rem);
+    line-height:1.55;
   }
 
   .v6-actions{
     gap:16px;
-    margin-top:24px;
+    margin-top:23px;
   }
 
   .v6-actions .button{
@@ -242,246 +195,136 @@
     border-radius:5px;
   }
 
-  .v6-actions .button-primary{
-    background:linear-gradient(135deg,#0ee0ec,#31d7f6);
-    box-shadow:0 10px 28px rgba(0,215,242,.18);
-  }
-
   .v6-value-strip{
     grid-template-columns:repeat(3,1fr);
     width:100%;
     max-width:570px;
     margin-top:30px;
     padding-top:18px;
-    border-top:1px solid rgba(38,219,239,.40);
-    background:linear-gradient(90deg,rgba(1,15,22,.26),transparent);
+    border-top:1px solid rgba(45,216,235,.34);
+    background:linear-gradient(90deg,rgba(1,15,22,.23),transparent);
   }
 
   .v6-value{
-    min-height:78px;
+    min-height:72px;
+  }
+
+  .v6-value p{
+    margin:0;
   }
 
   .v6-value strong{
-    font-size:.70rem;
+    font-size:.76rem;
+    line-height:1.28;
   }
 
-  /* Approved reference has a clear HUD panel on the right. */
-  .v6-hud-panel{
-    z-index:4;
-    left:46.0%;
-    top:7.1%;
-    width:47.2%;
-    height:74.7%;
-    filter:
-      drop-shadow(0 0 20px rgba(0,220,246,.06))
-      drop-shadow(0 22px 40px rgba(0,0,0,.16));
+  .v6-value small{
+    display:none;
   }
 
-  .v6-hud-frame path{
-    fill:rgba(1,10,17,.08);
-    stroke:rgba(27,219,242,.58);
-  }
-
-  .v6-hud-frame path:nth-child(2){
-    stroke:rgba(34,227,246,.90);
-  }
-
-  .v6-hud-brand{
-    left:6.1%;
-    top:6.3%;
-  }
-
-  .v6-hud-capabilities{
-    right:4.2%;
-    top:21.8%;
-    width:24.4%;
-    gap:9px;
-  }
-
-  .v6-hud-capabilities>div{
-    grid-template-columns:40px 1fr;
-    gap:10px;
-  }
-
-  .v6-hud-capabilities span{
-    width:38px;
-    height:38px;
-    background:rgba(0,13,21,.76);
-    border-color:rgba(21,225,243,.70);
-    box-shadow:0 0 18px rgba(0,218,239,.06);
-  }
-
-  .v6-hud-capabilities b{
-    color:#e2ebee;
-    font-size:.58rem;
-    text-shadow:0 2px 8px rgba(0,0,0,.95);
-  }
-
-  .v6-hud-message{
-    left:6.5%;
-    bottom:17.4%;
-    color:#c3cdd3;
-  }
-
-  .v6-plan-stack{
-    right:5.8%;
-    bottom:6.5%;
-  }
-
-  /* Person — much closer to approved scale/position */
+  /* Full-body overlay: feet must sit naturally on the reflective floor. */
   .v6-portrait-zone{
     z-index:5;
   }
 
   .v6-portrait-glow{
-    left:67.4%;
-    top:45.3%;
-    width:35%;
-    height:76%;
-    background:
-      radial-gradient(ellipse at center,rgba(0,229,255,.22),rgba(0,229,255,.065) 42%,transparent 72%);
-    filter:blur(8px);
+    left:69.4%;
+    top:49%;
+    width:31%;
+    height:68%;
+    background:radial-gradient(ellipse at center,rgba(0,222,255,.14),rgba(0,222,255,.035) 47%,transparent 74%);
+    filter:blur(11px);
   }
 
   .v6-portrait-rig{
-    left:67.7%;
-    bottom:1.2%;
-    height:91.8%;
+    left:69.6%;
+    bottom:3.0%;
+    height:86.5%;
+    transform:translateX(-50%) rotate(-1.15deg);
+    transform-origin:50% 88%;
+    animation:v6HeroPersonFloat 7.2s ease-in-out infinite;
+  }
+
+  .v6-portrait-rig::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:98.5%;
+    width:60%;
+    height:28%;
+    transform:translateX(-50%) scaleY(-1);
+    transform-origin:top center;
+    background:url("../images/jake-profile-full-v6.png") center top / contain no-repeat;
+    opacity:.085;
+    filter:blur(1.6px) saturate(.86);
+    pointer-events:none;
+    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.64),transparent 82%);
+    mask-image:linear-gradient(to bottom,rgba(0,0,0,.64),transparent 82%);
   }
 
   .v6-portrait{
     filter:
-      contrast(1.055)
+      contrast(1.045)
       saturate(1.035)
-      brightness(1.015)
-      drop-shadow(0 30px 24px rgba(0,0,0,.52))
-      drop-shadow(0 0 12px rgba(0,219,255,.09));
+      brightness(1.01)
+      drop-shadow(0 28px 23px rgba(0,0,0,.52))
+      drop-shadow(0 0 10px rgba(0,220,255,.08));
   }
 
-  .v6-tag{
-    color:#c7d2d7;
-    text-shadow:0 2px 8px rgba(0,0,0,.95);
-  }
-
-  .v6-tag.tag-infra{left:45.7%;top:24%}
-  .v6-tag.tag-net{right:16.4%;top:20.5%}
-  .v6-tag.tag-systems{right:14.4%;top:45.7%}
-  .v6-tag.tag-delivery{left:48.0%;bottom:24.4%}
-
-  .v6-mindset{
-    right:8.7%;
-    bottom:11.7%;
-    width:150px;
-    background:rgba(1,12,19,.78);
-    border-color:rgba(0,220,245,.38);
-    backdrop-filter:blur(10px);
-  }
-
-  .v6-right-rail{
-    right:5.4%;
-    top:18.2%;
-    color:#b1bec6;
-    text-shadow:0 2px 8px rgba(0,0,0,.95);
+  @keyframes v6HeroPersonFloat{
+    0%,100%{transform:translateX(-50%) rotate(-1.15deg) translateY(0)}
+    50%{transform:translateX(-50%) rotate(-1.15deg) translateY(-3px)}
   }
 
   .v6-scroll{
-    left:8.15%;
-    bottom:4.7%;
+    left:8.2%;
+    bottom:5.2%;
   }
 
-  .v6-version{
-    right:7.0%;
-    bottom:3.5%;
-  }
-
-  .v6-scan{
-    opacity:.48;
-  }
-
-  /* Bring the next section into the viewport like the approved reference. */
   .v6-featured-peek{
-    padding:25px 0 34px;
+    padding-top:26px;
     background:
-      radial-gradient(circle at 70% -30%,rgba(0,214,242,.12),transparent 33%),
-      linear-gradient(180deg,#050f18,#07131d);
-  }
-
-  .v6-featured-head{
-    margin-bottom:16px;
+      radial-gradient(circle at 70% -20%,rgba(0,215,242,.09),transparent 34%),
+      linear-gradient(180deg,#06111a,#07131d);
   }
 }
 
-/* 1366x768 / ordinary laptop at 100% zoom */
-@media (min-width:981px) and (max-height:850px){
+@media (min-width:981px) and (max-height:840px){
   .v6-shell{
-    height:655px;
-    min-height:655px;
-    max-height:655px;
+    height:660px;
+    min-height:660px;
+    max-height:660px;
   }
 
   .v6-copy{
-    top:15%;
-    left:8%;
+    top:17.4%;
   }
 
-  .v6-first{
-    font-size:5.6rem;
-  }
-
-  .v6-last{
-    font-size:4.15rem;
-  }
-
-  .v6-roles{
-    margin-top:14px;
-    font-size:.88rem;
-  }
-
-  .v6-summary{
-    margin-top:10px;
-    font-size:.84rem;
-  }
-
-  .v6-actions{
-    margin-top:16px;
-  }
-
-  .v6-actions .button{
-    min-height:44px;
-  }
-
-  .v6-value-strip{
-    margin-top:17px;
-    padding-top:13px;
-  }
-
-  .v6-value{
-    min-height:60px;
-  }
+  .v6-first{font-size:5.55rem}
+  .v6-last{font-size:4.15rem}
+  .v6-roles{margin-top:14px;font-size:.88rem}
+  .v6-summary{margin-top:9px;font-size:.85rem;line-height:1.5}
+  .v6-actions{margin-top:16px}
+  .v6-actions .button{min-height:44px}
+  .v6-value-strip{margin-top:17px;padding-top:13px}
+  .v6-value{min-height:58px}
 
   .v6-portrait-rig{
-    height:92.5%;
-    bottom:.8%;
-  }
-
-  .v6-hud-panel{
-    top:5.5%;
-    height:78%;
+    height:88%;
+    bottom:2.2%;
   }
 }
 
-/* =========================================================
-   TABLET / MOBILE
-   ========================================================= */
+/* Tablet/mobile: retain the same visual logic, but stack it cleanly. */
 @media(max-width:980px){
   .v6-page .site-header:not(.is-scrolled){
-    background:rgba(3,10,16,.84);
-    backdrop-filter:blur(15px);
+    background:rgba(3,10,16,.86);
+    backdrop-filter:blur(14px);
   }
 
   .v6-hero{
     margin-top:0;
-    padding:10px 0 36px;
+    padding:10px 0 34px;
     background:#030c14;
   }
 
@@ -493,47 +336,18 @@
     height:auto;
     min-height:0;
     max-height:none;
-    padding:34px 22px 26px;
+    padding:34px 22px 24px;
     background:
-      linear-gradient(180deg,rgba(2,9,15,.63),rgba(2,9,15,.86) 48%,#030c14 100%),
-      var(--hybrid-city) 58% center / auto 100% no-repeat;
+      linear-gradient(180deg,rgba(2,9,15,.58),rgba(2,9,15,.82) 48%,#030c14 100%),
+      var(--hero-bg) 64% center / auto 100% no-repeat;
   }
 
-  .v6-shell::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-    background:var(--hybrid-corridor) center / cover no-repeat;
-    opacity:.12;
-    mix-blend-mode:screen;
-  }
-
-  .v6-shell::after{
-    content:"";
-    position:absolute;
-    left:0;right:0;bottom:0;
-    height:28%;
-    background:linear-gradient(180deg,transparent,#030c14);
-    pointer-events:none;
-  }
-
-  .v6-atmosphere{
-    opacity:.20;
-  }
-
-  .v6-hud-panel{
-    display:none;
-  }
-
-  .v6-scene{
-    top:42%;
-    left:-12%;
-    width:124%;
-    height:50%;
-    opacity:.35;
-    mix-blend-mode:screen;
+  .v6-hud-panel,
+  .v6-tag,
+  .v6-mindset,
+  .v6-right-rail,
+  .v6-version{
+    display:none!important;
   }
 
   .v6-copy{
@@ -545,30 +359,39 @@
     max-width:none;
   }
 
+  .v6-eyebrow{
+    display:none!important;
+  }
+
+  .v6-value-strip{
+    max-width:100%;
+  }
+
   .v6-portrait-zone{
     position:relative;
     z-index:6;
     inset:auto;
     height:500px;
-    margin-top:6px;
+    margin-top:8px;
   }
 
   .v6-portrait-rig{
-    left:58%;
+    left:60%;
     bottom:0;
     height:470px;
+    transform:translateX(-50%) rotate(-1deg);
+  }
+
+  .v6-portrait-rig::after{
+    display:none;
   }
 
   .v6-portrait-glow{
-    left:58%;
-    top:49%;
+    left:60%;
     width:330px;
     height:420px;
   }
 
-  .v6-right-rail,
-  .v6-mindset,
-  .v6-version,
   .v6-scroll{
     display:none;
   }
@@ -578,16 +401,42 @@
   .v6-shell{
     padding:28px 16px 22px;
     background:
-      linear-gradient(180deg,rgba(2,9,15,.66),rgba(2,9,15,.90) 50%,#030c14 100%),
-      var(--hybrid-city) 62% center / auto 100% no-repeat;
+      linear-gradient(180deg,rgba(2,9,15,.60),rgba(2,9,15,.88) 50%,#030c14 100%),
+      var(--hero-bg) 66% center / auto 100% no-repeat;
   }
 
   .v6-first{
-    font-size:clamp(3.7rem,20vw,4.9rem);
+    font-size:clamp(3.75rem,19.5vw,4.9rem);
   }
 
   .v6-last{
-    font-size:clamp(3.08rem,17vw,4.2rem);
+    font-size:clamp(3.08rem,16.8vw,4.2rem);
+  }
+
+  .v6-roles{
+    font-size:.92rem;
+  }
+
+  .v6-summary{
+    font-size:.92rem;
+  }
+
+  .v6-actions{
+    gap:10px;
+  }
+
+  .v6-actions .button{
+    min-width:0;
+    flex:1 1 150px;
+  }
+
+  .v6-value-strip{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .v6-value{
+    min-height:58px;
   }
 
   .v6-portrait-zone{
@@ -595,17 +444,13 @@
   }
 
   .v6-portrait-rig{
-    left:59%;
+    left:61%;
     height:395px;
   }
 
   .v6-portrait-glow{
-    left:59%;
+    left:61%;
     width:260px;
     height:340px;
-  }
-
-  .v6-tag{
-    display:none;
   }
 }
